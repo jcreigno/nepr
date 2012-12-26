@@ -1,0 +1,16 @@
+td {
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+/* Style for charts */
+.bar {
+	display: inline-block;
+	border: 1px outset #FF6699;
+	background: #FF3399;
+	border-bottom: 1px solid #000;
+}
+
+.bar:hover {
+	background: #FF6699;
+}

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="iso-8859-1">
+<title>Nep.R</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Visualisation des logs">
+<meta name="author" content="Puma Lot 6 - équipe 3">
+
+<!-- Le styles -->
+<link href="./css/application.css" rel="stylesheet">
+<link href="./css/bootswatch-cyborg-2.1.0.min.css" rel="stylesheet">
+<style type="text/css">
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+</style>
+<link href="./css/bootstrap-responsive-2.1.0.min.css" rel="stylesheet">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="./js/html5.js"></script>
+<![endif]-->
+
+<!-- Le fav and touch icons -->
+<link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body>
+
+	<!-- Menu -->
+	<div id="mainNavbar" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" data-bind="attr: {href:urlFor('home')}">Nep.R</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li data-bind="attr: {class : getClassFor('alertes')}"><a
+							data-bind="attr: {href:urlFor('alertes')}"><i class="icon-warning-sign icon-white"></i>
+								Alertes</a></li>
+						<li data-bind="attr: {class : getClassFor('perfs')}"><a
+							data-bind="attr: {href:urlFor('perfs')}"><i class="icon-time icon-white"></i>
+								Performances</a></li>
+						<li data-bind="attr: {class : getClassFor('traces')}"><a
+							data-bind="attr: {href:urlFor('traces')}"><i class="icon-pencil icon-white"></i>
+								Traçabilité</a></li>
+					</ul>
+					<form id="formEnvironnement" class="form-inline navbar-search pull-right">
+						<label class="control-label" for="selectEnvironnement">Environnement</label> <select id="selectEnvironnement"
+							data-bind="options: allEnvironnements, optionsText: 'libelle', value: environnement, click: refresh()"></select>
+					</form>
+
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div id="home" class="container-fluid" data-bind="if: currentPage() == 'home'">
+		<div class="row-fluid well" style="width: 97%;">
+			<button type="button" class="close" data-dismiss="alert">
+				<i class="icon-remove icon-white"></i>
+			</button>
+			<div class="span2">
+				<img src="./img/Crystal_Clear_app_kchart.png" />
+			</div>
+			<div class="span8">
+				<h3>Bienvenue sur la console Nep.R !</h3>
+				<p>Suivez en direct le bon fonctionnement et les performances du Socle de Services PUMA.</p>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span6">
+				<h3>Résumé des performances (top 10, par couche)</h3>
+				<div class="alert alert-info" data-bind="visible: !Object.keys(stats.summary()).length">Aucune donnée disponible
+					...</div>
+				<div data-bind="foreach: Object.keys(stats.summary())">
+					<i class="icon-th-large icon-white"></i> <strong><span data-bind="text: $root.couche($data)"></span></strong>
+					<table class="table table-condensed table-striped">
+						<thead>
+							<tr>
+								<th>Service</th>
+								<th>Opération</th>
+								<th>Nb appels</th>
+								<th>Tps moyen</th>
+							</tr>
+						</thead>
+						<tbody id="result-box" data-bind="template:{ name: 'stats-template', foreach: $root.stats.summary()[$data]}">
+						</tbody>
+					</table>
+				</div>
+				<a class="btn"
+					data-bind="attr: {href: urlFor('perfs')}, visible: Object.keys(stats.summary()).length">Plus
+					de détails <i class="icon-forward icon-white"></i>
+				</a>
+			</div>
+			<div class="span6">
+				<h3>Résumé des alertes (10 dernières)</h3>
+				<div class="alert alert-success" data-bind="visible: !errors.summary().length">
+					<strong>Yeah !!</strong> Aucune alerte en ce moment !
+				</div>
+				<table class="table table-condensed table-striped table-hover" data-bind="visible:errors.summary().length">
+					<thead>
+						<tr>
+							<th>Type</th>
+							<th>Date</th>
+							<th>Classe</th>
+						</tr>
+					</thead>
+					<tbody id="result-box" data-bind="foreach: errors.summary()">
+						<tr class="tooltipaware" data-placement="top" data-bind="attr: {title: message}">
+							<td><span class="label label-important">ERROR</span></td>
+							<td data-bind="text: date"></td>
+							<td data-bind="text: clazz"></td>
+						</tr>
+					</tbody>
+				</table>
+				<a class="btn" data-bind="attr: {href: urlFor('alertes')}, visible:errors.summary().length">Plus
+					de détails <i class="icon-forward icon-white"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- /container-fluid -->
+
+	<div id="alertes" class="container-fluid" data-bind="if: currentPage() == 'alertes'">
+		<h1>Alertes</h1>
+		<div class="row-fluid alert alert-success" data-bind="visible: !errors.all().length">
+			<strong>Yeah !!</strong> Aucune alerte en ce moment !
+		</div>
+		<div class="row-fluid" data-bind="visible:errors.all().length">
+			<div class="span6">
+				<table class="table table-condensed table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Type</th>
+							<th>Date</th>
+							<th>Classe</th>
+						</tr>
+					</thead>
+					<tbody id="result-box" data-bind="foreach: errors.pagedRows">
+						<tr data-bind="click: $root.errors.select, attr: {class: ($root.errors.selected()._id==_id?'info':'')}">
+							<td><span class="label label-important">ERROR</span></td>
+							<td data-bind="text: date"></td>
+							<td data-bind="text: clazz"></td>
+						</tr>
+					</tbody>
+				</table>
+				<ul class="pager">
+					<li class="previous" data-bind="click: errors.previousPage, visible: errors.pageIndex()"><a href="#"><i
+							class="icon-arrow-left icon-white"></i></a></li>
+					<li data-bind="text: 'page'+(errors.pageIndex()+1)+'/'+(errors.maxPageIndex()+1)"></li>
+					<li class="next" data-bind="click: errors.nextPage, visible: errors.pageIndex() < errors.maxPageIndex()"><a href="#"><i
+							class="icon-arrow-right icon-white"></i></a></li>
+				</ul>
+			</div>
+			<div class="span6 well" data-bind="with: errors, visible: errors.selected()._id">
+				<h1>Détail de l'alerte</h1>
+				<ul class="unstyled">
+					<li data-bind="if: selected().userid"><i class="icon-user icon-white"></i><strong> <span data-bind="text: selected().userid"></span></strong> : 
+                        <span data-bind="text: selected().sessionid"></span> / 
+                        <a data-bind="attr: {href:$root.urlFor('traces',{'requestid':selected().requestid})}"><span data-bind="text: selected().requestid"></span></a></li>
+                    <li><i class="icon-calendar icon-white"></i><strong> Date : </strong><span data-bind="text: selected().date"></span></li></li>
+					<li><i class="icon-th-large icon-white"></i><strong> Couche : </strong><span data-bind="text: $root.couche(selected().couche)"></span></li>
+					<li><i class="icon-hdd icon-white"></i><strong> Machine : </strong><span data-bind="text: selected().machine"></span></li>
+					<li><i class="icon-tag icon-white"></i><strong> Classe : </strong><span data-bind="text: selected().clazz"></span></li>
+				</ul>
+                <hr/>
+                <p><i class="icon-file icon-white"></i><strong> Message : </strong>
+                    <blockquote>
+                        <span data-bind="text: selected().message"></span>
+                    </blockquote>
+                </p>
+				<div data-bind="if: selected().stacktrace">
+				    <i class="icon-th-list icon-white"></i><strong> Stacktrace : </strong><a data-toggle="collapse"
+					    data-target="#stacktrace"> <span class="label"><i class="icon-plus icon-white"></i></span>
+				    </a>
+                    <!--div id="stacktrace" class="collapse" data-bind="text: selected().stacktrace.join('\n')"></div-->
+                    <div id="stacktrace" class="collapse" data-bind="template: {name: 'stacktrace-template', data: selected()}"></div>
+                </div>
+			</div>
+		</div>
+	</div>
+
+	<div id="perfs" class="container-fluid" data-bind="if: currentPage() == 'perfs'">
+		<h1>Performances</h1>
+		<div class="row-fluid alert alert-info" data-bind="visible: !Object.keys(stats.all()).length">Aucune donnée
+			disponible ...</div>
+		<div class="row-fluid" data-bind="visible: Object.keys(stats.all()).length">
+			<div class="span6">
+				<div data-bind="foreach: Object.keys(stats.all())">
+					<i class="icon-th-large icon-white"></i> <span data-bind="text: $root.couche($data)"></span>
+					<table class="table table-condensed table-striped table-hover">
+						<thead>
+							<tr>
+								<th>Service</th>
+								<th>Opération</th>
+								<th>Nb appels</th>
+								<th>Tps moyen</th>
+							</tr>
+						</thead>
+						<tbody id="result-box" data-bind="template:{ name: 'stats-template', foreach: $root.stats.all()[$data]}">
+							<!--tr data-bind="click: $root.selectStat, attr: {class: ($root.selectedStat()._id==_id?'info':'')}">
+								<td data-bind="text: _id.service"></td>
+								<td data-bind="text: _id.operation"></td>
+								<td data-bind="text: value.count"></td>
+								<td data-bind="text: value.average.toFixed()"></td>
+							</tr-->
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="span6" data-bind="visible: stats.selected()._id">
+				<h3>Détail des performances (100 dernières mesures)</h3>
+				<p>
+					<i class="icon-certificate icon-white"></i> Service : <strong><span
+						data-bind="text: (stats.selected()._id?stats.selected()._id.service:'')"></span></strong>
+				</p>
+				<p>
+					<i class="icon-cog icon-white"></i> Operation : <strong><span
+						data-bind="text: (stats.selected()._id?stats.selected()._id.operation:'')"></span></strong>
+				</p>
+				<p>
+					<i class="icon-plus-sign icon-white"></i> Temps maxi : <strong><span
+						data-bind="text: selectedPerfsMetrix().maxval"></span></strong>  ms
+				</p>
+				<p>
+					<i class="icon-minus-sign icon-white"></i> Temps mini : <strong><span
+						data-bind="text: selectedPerfsMetrix().minval"></span></strong>  ms
+				</p>
+				<div id="perfChart" class="well"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="traces" class="container-fluid" data-bind="if: currentPage() == 'traces'">
+		<h1>Traçabilité</h1>
+		<form id="formRequestId" class="form-inline" >
+			<label class="control-label" for="inputRequestId">Request Id</label> <input type="text" id="inputRequestId"
+				data-bind="value: requestId"></input>
+			<button data-bind="click: getRequestIdDetails">
+				<i class="icon-search"></i>
+			</button>
+		</form>
+		<div class="well" data-bind="visible: requestIdDetails().length > 0">
+			<table class="table table-condensed table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Couche</th>
+						<th>Machine</th>
+						<th>Service</th>
+						<th>Opération</th>
+						<th>Utilisateur</th>
+						<th>Temps (ms)</th>
+					</tr>
+				</thead>
+				<tbody id="result-box" data-bind="foreach: requestIdDetails">
+					<tr>
+						<td data-bind="text: date"></td>
+						<td data-bind="text: $root.couche(couche)"></td>
+						<td data-bind="text: machine"></td>
+						<td data-bind="text: service"></td>
+						<td data-bind="text: operation"></td>
+						<td data-bind="text: userid"></td>
+						<td data-bind="text: elapsed"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+        <p><a data-bind="attr:{ 'href' : '/traces/' + environnement().code}"><img src="img/x-office-spreadsheet.png" /> télécharger les données brutes.</a> (.csv)<p>
+	</div>
+
+
+	<!-- Le javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="./js/jquery-1.8.0.min.js"></script>
+	<script src="./js/bootstrap-2.1.0.min.js"></script>
+	<script src="./js/sammy-0.7.1.min.js"></script>
+	<script src="./js/knockout-2.1.0.js"></script>
+	<script src="./js/d3.v2.min.js"></script>
+	<script src="./js/application.js"></script>
+
+    <script type="text/html" id="stats-template">
+        <tr data-bind="click: $root.selectStat, attr: {class: ($root.stats.selected()._id==_id?'info':'')}">
+            <td data-bind="text: _id.service"></td>
+            <td data-bind="text: _id.operation"></td>
+            <td data-bind="text: value.count"></td>
+            <td data-bind="text: value.average.toFixed()"></td>
+        </tr>
+    </script>
+    <script type="text/html" id="stacktrace-template">
+        <div data-bind="foreach: $data.stacktrace">
+            <span data-bind="text: $root.errors.stackElement($data)"></span>
+        </div>
+    </script>
+
+</body>
+</html>
