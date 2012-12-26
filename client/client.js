@@ -57,7 +57,7 @@ function retreiveConfiguration (version, cb){
   if(version){
     headers['If-None-Match'] = version;
   }
-  request({'url':url,'headers':headers}, function (error, response, body) {
+  request({'url':url,'headers':headers}, function (error, response) {
     if (!error && response.statusCode === 200) {
       newVersion = response.headers.etag;
     }
@@ -72,7 +72,7 @@ var send = _.throttle(function sendPerfData (vars){
   var data = vars.lines.splice(0, vars.lines.length);
   var errors = vars.errors.splice(0, vars.errors.length);
   data = data.concat(errors);
-  client.post({url:POST_URL, body:data}, function(err, res, obj){
+  client.post({url:POST_URL, body:data}, function(err, res){
     if(err){
       logger.error(util.inspect(err));
       logger.error(util.inspect(res));
@@ -92,7 +92,7 @@ function wildcards(f, ctxt, cb){
   basedirPath.pop();
   var files = [];
   var finder = require('walkdir').find(basedirPath.join('/'));
-  finder.on('file', function (file, stat) {
+  finder.on('file', function (file) {
     files.push(file);
   });
   finder.on('end', function(){
