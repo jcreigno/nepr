@@ -2,6 +2,25 @@
   "name": "nepr-client",
   "description": "log tracking agent",
   "version": "0.0.1",
+  "homepage": "https://github.com/jcreigno/nepr/client",
+  "author": {
+    "name": "jerome creignou",
+    "email": "jerome.creignou@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jcreigno/nepr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jcreigno/nepr/issues"
+  },
+ "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jcreigno/nepr/blob/master/client/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/NeprClient",
   "dependencies": {
     "request": "2.10.0",
     "underscore": "1.3.3",
@@ -10,6 +29,13 @@
     "walkdir" : "0.0.4",
     "winston" : "0.6.2"
   },
+  "engines": {
+    "node": ">= 0.6.0"
+  },
   "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17"
   }
 }
