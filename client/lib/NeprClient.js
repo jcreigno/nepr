@@ -83,12 +83,12 @@ NeprClient.prototype.start = function (remote){
     self.logger.info(file + ' :');
     Object.keys(remote[file]).forEach(function (regexp){
       self.logger.info(' ✓ pattern : ' + regexp);
-      e.matches(new RegExp(regexp), function(m,vars){
-        remote[file][regexp](m,vars);
+      e.matches(new RegExp(regexp), function(m, vars, f){
+        remote[file][regexp](m, vars, f);
         self.send(vars);
       });
     });
-    self.wildcards(file, e.watch, e);
+    e.watch(file);
   });
 };
 

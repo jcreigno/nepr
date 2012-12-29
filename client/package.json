@@ -24,7 +24,7 @@
   "dependencies": {
     "request": "2.10.0",
     "underscore": "1.3.3",
-    "file-extractor": "0.4.0",
+    "file-extractor": "0.5.0",
     "minimatch": "0.2.6",
     "walkdir" : "0.0.4",
     "winston" : "0.6.2"
