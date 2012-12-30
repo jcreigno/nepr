@@ -22,34 +22,6 @@ function NeprClient (config){
   self.client = request.defaults({url: post, 'json': true});
 
   /**
-   * handle wildcards in filenames
-   * @param f: filename.
-   * @param cb : callback when a matching file is found.
-   * @param ctxt : callback invocation context.
-   */
-  self.wildcards = function (f, cb, ctxt){
-    var starmatch = f.match(/(.*)\*.*/);
-    if(!starmatch){
-      return process.nextTick(function(){ cb.apply(ctxt,[f]); });
-    }
-    var basedirPath = starmatch[1].split(/\//);
-    basedirPath.pop();
-    var files = [];
-    var finder = require('walkdir').find(basedirPath.join('/'));
-    finder.on('file', function (file) {
-      files.push(file);
-    });
-    finder.on('end', function(){
-      self.logger.debug('selected files : ');
-      files.filter(require('minimatch').filter(f, {matchBase: true}))
-        .forEach(function (f){
-          self.logger.debug(f);
-          cb.apply(ctxt,[f]);
-        });
-    });
-  };
-
-  /**
    * throttled send method.
    */
   self.send = _.throttle(function sendPerfData (vars){
