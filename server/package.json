@@ -1,15 +1,18 @@
 {
   "name": "nepr server",
   "description": "central logs access.",
-  "keywords" : ["logs", "text"],
+  "keywords": [
+    "logs",
+    "text"
+  ],
   "version": "0.1.0",
   "author": {
-    "name" : "jerome creignou",
-    "url" : "https://github.com/jcreigno/nepr"
+    "name": "jerome creignou",
+    "url": "https://github.com/jcreigno/nepr"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "git://github.com/jcreigno/nepr.git"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jcreigno/nepr.git"
   },
   "scripts": {
     "start": "node app.js"
@@ -17,6 +20,8 @@
   "dependencies": {
     "express": "3.0.5",
     "jade": "*",
-    "less-middleware": "*"
+    "less-middleware": "*",
+    "mongodb": "~1.2.7",
+    "underscore": "~1.4.3"
   }
 }
