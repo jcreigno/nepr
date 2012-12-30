@@ -6,8 +6,9 @@ var extractor = require('file-extractor')
     , _ = require('underscore');
 
 /**
- * Construct a new NeprClient.
- * @param : config
+  Construct a new NeprClient.
+  @constructor
+  @param {object-literal} config any configuration
  */
 function NeprClient (config){
   var self = this;
@@ -22,7 +23,7 @@ function NeprClient (config){
   self.client = request.defaults({url: post, 'json': true});
 
   /**
-   * throttled send method.
+    throttled send method.
    */
   self.send = _.throttle(function sendPerfData (vars){
     var data = vars.lines.splice(0, vars.lines.length);
@@ -41,8 +42,8 @@ function NeprClient (config){
 
 
 /**
- * start watching files for modification,
- * send matching lines to NeprServer.
+  start watching files for modification, send matching lines to NeprServer.
+  @param {object-literal} remote configuration
  */
 NeprClient.prototype.start = function (remote){
   var self = this;
@@ -65,8 +66,7 @@ NeprClient.prototype.start = function (remote){
 };
 
 /**
- * stop watching files.
- * clear any file watcher.
+  stop watching files. clear any file watcher.
  */
 NeprClient.prototype.stop = function (){
   var self = this;

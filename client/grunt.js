@@ -14,6 +14,12 @@ module.exports = function(grunt) {
       files: '<config:lint.files>',
       tasks: 'default'
     },
+    jsdoc : {
+        dist : {
+            src: ['lib/**/*.js'], 
+            dest: 'doc'
+        }
+    },
     jshint: {
       options: {
         laxcomma: true,
@@ -35,6 +41,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-jsdoc-plugin');
   // Default task.
   grunt.registerTask('default', 'lint test');
 };
