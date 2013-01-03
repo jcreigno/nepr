@@ -2,6 +2,7 @@
 'use strict';
 var extractor = require('file-extractor')
     , request = require ('request')
+    , winston = require('winston')
     , os = require('os')
     , _ = require('underscore');
 
@@ -14,7 +15,8 @@ function NeprClient (config){
   var self = this;
   // active extractors
   self.extractors = [];
-  self.logger = config.logger;
+  self.logger = config.logger ||  winston;
+  self.throttle = config.throttle || 200;
   var post = [ config.serverconfig.url
     , 'data'
     , config.env
@@ -23,20 +25,22 @@ function NeprClient (config){
   self.client = request.defaults({url: post, 'json': true});
 
   /**
-    throttled send method.
-   */
+   send data to NeprServer and throttle calls. This method expects 2 arrays in {vars} : 
+   {lines} and {errors}.
+   @param {object-literal} vars extracted data.
+  */
   self.send = _.throttle(function sendPerfData (vars){
-    var data = vars.lines.splice(0, vars.lines.length);
-    var errors = vars.errors.splice(0, vars.errors.length);
-    data = data.concat(errors);
-    self.client.post({body:data}, function(err, res){
-      if(err){
-        self.logger.error(err);
-        self.logger.error(res);
-      }
-    });
-  }, config.throttle || 200);
-
+        var data = vars.lines.splice(0, vars.lines.length);
+        var errors = vars.errors.splice(0, vars.errors.length);
+        data = data.concat(errors);
+        self.client.post({body:data},
+          function(err, res){
+            if(err){
+              self.logger.error(err);
+              self.logger.error(res);
+            }
+          });
+      }, self.throttle);
 }
 
 
@@ -65,6 +69,7 @@ NeprClient.prototype.start = function (remote){
   });
 };
 
+
 /**
   stop watching files. clear any file watcher.
  */
@@ -73,7 +78,7 @@ NeprClient.prototype.stop = function (){
   self.extractors.forEach(function(e){
     e.close();
   });
-  self.extractor.splice(0, 0);
+  self.extractors.splice(0, 0);
   self.logger.info('stop watching');
 };
 
