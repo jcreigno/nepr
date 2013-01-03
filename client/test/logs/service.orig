@@ -1,0 +1,233 @@
+ INFO|2012-09-05 09:47:51,317|JHONDOE|b81596fdaaf4882c57db973935f41f902dea3bf4|b81596fdaaf4882c57db973935f41f902dea3bf4|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 09:47:51,910|JHONDOE|b81596fdaaf4882c57db973935f41f902dea3bf4|b81596fdaaf4882c57db973935f41f902dea3bf4|com.example.aservice.SampleServiceName|get TIME-USED;687;0;0;
+ INFO|2012-09-05 09:48:33,777||||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 09:48:33,886||||com.example.aservice.SampleServiceName|tag TIME-USED;109;0;0;
+ INFO|2012-09-05 09:48:34,152||||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 09:48:35,199||||com.example.bservice.OtherServiceName|update TIME-USED;1313;0;0;
+ INFO|2012-09-05 10:15:29,640|JHONDOE|8ffd643de4d68620a1647f2dd13b13407d772368|8ffd643de4d68620a1647f2dd13b13407d772368|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 10:15:29,718|JHONDOE|8ffd643de4d68620a1647f2dd13b13407d772368|8ffd643de4d68620a1647f2dd13b13407d772368|com.example.aservice.SampleServiceName|get TIME-USED;78;0;0;
+ INFO|2012-09-05 10:18:56,598|JHONDOE|cab1351c180d00d0ef75fa0c771a870da9d8d829|cab1351c180d00d0ef75fa0c771a870da9d8d829|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 10:18:56,754|JHONDOE|cab1351c180d00d0ef75fa0c771a870da9d8d829|cab1351c180d00d0ef75fa0c771a870da9d8d829|com.example.aservice.SampleServiceName|get TIME-USED;156;0;0;
+ INFO|2012-09-05 10:28:56,578|JHONDOE|cf2f947eb39186eadc388ec448fe30ce4f40fa2d|cf2f947eb39186eadc388ec448fe30ce4f40fa2d|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 10:28:56,703|JHONDOE|cf2f947eb39186eadc388ec448fe30ce4f40fa2d|cf2f947eb39186eadc388ec448fe30ce4f40fa2d|com.example.aservice.SampleServiceName|get TIME-USED;125;0;0;
+ INFO|2012-09-05 10:36:29,185|JHONDOE|bd1389ca3d55231f16d26d566f91fc6a00112ec9|bd1389ca3d55231f16d26d566f91fc6a00112ec9|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 10:36:29,310|JHONDOE|bd1389ca3d55231f16d26d566f91fc6a00112ec9|bd1389ca3d55231f16d26d566f91fc6a00112ec9|com.example.aservice.SampleServiceName|get TIME-USED;125;0;0;
+ INFO|2012-09-05 10:51:47,216|JHONDOE|3c4fb565bf42f5f30e26daa7733e823d5ba20878|3c4fb565bf42f5f30e26daa7733e823d5ba20878|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 10:51:47,638|JHONDOE|3c4fb565bf42f5f30e26daa7733e823d5ba20878|3c4fb565bf42f5f30e26daa7733e823d5ba20878|com.example.aservice.SampleServiceName|get TIME-USED;422;0;0;
+ INFO|2012-09-05 11:02:15,605|JHONDOE|c319337d4eda808426f4da8778c99a6bb9c043ab|c319337d4eda808426f4da8778c99a6bb9c043ab|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:02:15,636|JHONDOE|c319337d4eda808426f4da8778c99a6bb9c043ab|c319337d4eda808426f4da8778c99a6bb9c043ab|com.example.aservice.SampleServiceName|get TIME-USED;31;0;0;
+ INFO|2012-09-05 11:02:16,651|SCOTTIG|886a5562d020d7903b3e27fb3a03e333cb3e75be|886a5562d020d7903b3e27fb3a03e333cb3e75be|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:02:16,682|SCOTTIG|886a5562d020d7903b3e27fb3a03e333cb3e75be|886a5562d020d7903b3e27fb3a03e333cb3e75be|com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 11:14:39,935|JHONDOE|b5b8d2e901059b64a2788f2325322ba36ef17181|b5b8d2e901059b64a2788f2325322ba36ef17181|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:14:40,107|JHONDOE|b5b8d2e901059b64a2788f2325322ba36ef17181|b5b8d2e901059b64a2788f2325322ba36ef17181|com.example.aservice.SampleServiceName|get TIME-USED;172;0;0;
+ INFO|2012-09-05 11:21:11,674|JHONDOE|2997088fc43e701ad32ea0d88453726f5f7bf075|2997088fc43e701ad32ea0d88453726f5f7bf075|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:21:11,705|JHONDOE|2997088fc43e701ad32ea0d88453726f5f7bf075|2997088fc43e701ad32ea0d88453726f5f7bf075|com.example.aservice.SampleServiceName|tag TIME-USED;31;0;0;
+ INFO|2012-09-05 11:21:11,736|JHONDOE|2997088fc43e701ad32ea0d88453726f5f7bf075|2997088fc43e701ad32ea0d88453726f5f7bf075|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:21:12,127|JHONDOE|2997088fc43e701ad32ea0d88453726f5f7bf075|2997088fc43e701ad32ea0d88453726f5f7bf075|com.example.bservice.OtherServiceName|update TIME-USED;422;0;0;
+ INFO|2012-09-05 11:22:31,937|JHONDOE|9417111a54b6add7339ab829f1fbff65caa65c74|9417111a54b6add7339ab829f1fbff65caa65c74|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:22:31,983|JHONDOE|9417111a54b6add7339ab829f1fbff65caa65c74|9417111a54b6add7339ab829f1fbff65caa65c74|com.example.aservice.SampleServiceName|tag TIME-USED;46;0;0;
+ INFO|2012-09-05 11:22:31,999|JHONDOE|9417111a54b6add7339ab829f1fbff65caa65c74|9417111a54b6add7339ab829f1fbff65caa65c74|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:22:32,186|JHONDOE|9417111a54b6add7339ab829f1fbff65caa65c74|9417111a54b6add7339ab829f1fbff65caa65c74|com.example.bservice.OtherServiceName|update TIME-USED;203;0;0;
+ INFO|2012-09-05 11:26:13,042|SCOTTIG|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:13,089|SCOTTIG|||com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 11:26:13,308|JHONDOE|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:13,339|JHONDOE|||com.example.aservice.SampleServiceName|get TIME-USED;31;0;0;
+ INFO|2012-09-05 11:26:14,167|SCOTTIG|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:14,214|SCOTTIG|||com.example.aservice.SampleServiceName|list TIME-USED;47;0;0;
+ INFO|2012-09-05 11:26:14,542|ADMINIS|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:14,557|ADMINIS|||com.example.aservice.SampleServiceName|list TIME-USED;15;0;0;
+ INFO|2012-09-05 11:26:14,963|SCOTTIG|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:14,995|SCOTTIG|||com.example.aservice.SampleServiceName|get TIME-USED;32;0;0;
+ INFO|2012-09-05 11:26:15,823|ADMINIS|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:15,854|ADMINIS|||com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 11:26:17,447|JHONDOE|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:17,463|JHONDOE|||com.example.aservice.SampleServiceName|get TIME-USED;16;0;0;
+ INFO|2012-09-05 11:26:18,057|SCOTTIG|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:18,103|SCOTTIG|||com.example.aservice.SampleServiceName|list TIME-USED;46;0;0;
+ INFO|2012-09-05 11:26:18,119|ADMINIS|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:18,197|ADMINIS|||com.example.aservice.SampleServiceName|list TIME-USED;78;0;0;
+ INFO|2012-09-05 11:26:19,056|JHONDOE|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:19,088|JHONDOE|||com.example.aservice.SampleServiceName|list TIME-USED;32;0;0;
+ INFO|2012-09-05 11:26:19,447|SCOTTIG|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:19,494|SCOTTIG|||com.example.aservice.SampleServiceName|list TIME-USED;47;0;0;
+ INFO|2012-09-05 11:26:19,962|JHONDOE|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:20,040|JHONDOE|||com.example.aservice.SampleServiceName|list TIME-USED;78;0;0;
+ INFO|2012-09-05 11:26:20,900|JHONDOE|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:20,946|JHONDOE|||com.example.aservice.SampleServiceName|list TIME-USED;46;0;0;
+ INFO|2012-09-05 11:26:21,103|SCOTTIG|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:21,134|SCOTTIG|||com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 11:26:57,672|SCOTTIG|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:57,766|SCOTTIG|||com.example.aservice.SampleServiceName|get TIME-USED;94;0;0;
+ INFO|2012-09-05 11:26:58,016|JHONDOE|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:58,047|JHONDOE|||com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 11:26:58,766|JHONDOE|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:58,797|JHONDOE|||com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 11:26:58,891|ADMINIS|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:26:58,922|ADMINIS|||com.example.aservice.SampleServiceName|get TIME-USED;31;0;0;
+ INFO|2012-09-05 11:27:00,578|ADMINIS|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:00,672|ADMINIS|||com.example.aservice.SampleServiceName|get TIME-USED;94;0;0;
+ INFO|2012-09-05 11:27:00,703|ADMINIS|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:00,766|ADMINIS|||com.example.aservice.SampleServiceName|get TIME-USED;94;0;0;
+ INFO|2012-09-05 11:27:01,375|JHONDOE|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:01,390|JHONDOE|||com.example.aservice.SampleServiceName|list TIME-USED;15;0;0;
+ INFO|2012-09-05 11:27:02,093|JHONDOE|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:02,125|JHONDOE|||com.example.aservice.SampleServiceName|get TIME-USED;32;0;0;
+ INFO|2012-09-05 11:27:02,187|ADMINIS|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:02,218|ADMINIS|||com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 11:27:02,921|ADMINIS|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:03,046|ADMINIS|||com.example.aservice.SampleServiceName|get TIME-USED;125;0;0;
+ INFO|2012-09-05 11:27:03,062|SCOTTIG|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:03,124|SCOTTIG|||com.example.aservice.SampleServiceName|get TIME-USED;62;0;0;
+ INFO|2012-09-05 11:27:04,437|SCOTTIG|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:04,452|JHONDOE|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:04,484|SCOTTIG|||com.example.aservice.SampleServiceName|list TIME-USED;47;0;0;
+ INFO|2012-09-05 11:27:04,499|JHONDOE|||com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 11:27:05,187|SCOTTIG|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:05,218|SCOTTIG|||com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 11:27:06,093|ADMINIS|||com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:27:06,124|ADMINIS|||com.example.aservice.SampleServiceName|get TIME-USED;31;0;0;
+ INFO|2012-09-05 11:40:09,475|JHONDOE|b8e5823885bd59ea10ccfec3781350e50c102f88|b8e5823885bd59ea10ccfec3781350e50c102f88|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:40:09,538|JHONDOE|b8e5823885bd59ea10ccfec3781350e50c102f88|b8e5823885bd59ea10ccfec3781350e50c102f88|com.example.aservice.SampleServiceName|get TIME-USED;63;0;0;
+ INFO|2012-09-05 11:53:31,600|JHONDOE|309cc37e2239b30799d30812d25897545866eb63|309cc37e2239b30799d30812d25897545866eb63|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:53:31,725|JHONDOE|309cc37e2239b30799d30812d25897545866eb63|309cc37e2239b30799d30812d25897545866eb63|com.example.aservice.SampleServiceName|get TIME-USED;125;0;0;
+ INFO|2012-09-05 11:53:34,396|JHONDOE|e2d26865b64911d2d53de2b3d112edbadba9133c|e2d26865b64911d2d53de2b3d112edbadba9133c|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:53:34,443|JHONDOE|e2d26865b64911d2d53de2b3d112edbadba9133c|e2d26865b64911d2d53de2b3d112edbadba9133c|com.example.aservice.SampleServiceName|tag TIME-USED;47;0;0;
+ INFO|2012-09-05 11:53:34,490|JHONDOE|e2d26865b64911d2d53de2b3d112edbadba9133c|e2d26865b64911d2d53de2b3d112edbadba9133c|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:53:34,677|JHONDOE|dd464dc6a45d73fac90f1aefa30cef8d8493781f|dd464dc6a45d73fac90f1aefa30cef8d8493781f|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ WARN|2012-09-05 11:53:34,865|JHONDOE|e2d26865b64911d2d53de2b3d112edbadba9133c|e2d26865b64911d2d53de2b3d112edbadba9133c|com.example.prodhabitationentity.SampleServiceDAO|Concurrent modification exception on item GH3043
+ INFO|2012-09-05 11:53:34,880|JHONDOE|dd464dc6a45d73fac90f1aefa30cef8d8493781f|dd464dc6a45d73fac90f1aefa30cef8d8493781f|com.example.aservice.SampleServiceName|tag TIME-USED;203;0;0;
+ INFO|2012-09-05 11:53:34,958|JHONDOE|dd464dc6a45d73fac90f1aefa30cef8d8493781f|dd464dc6a45d73fac90f1aefa30cef8d8493781f|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:53:35,083|JHONDOE|a3239dbfae91b4911a4048e606c62f98bc4bc3e7|a3239dbfae91b4911a4048e606c62f98bc4bc3e7|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:53:35,115|JHONDOE|a3239dbfae91b4911a4048e606c62f98bc4bc3e7|a3239dbfae91b4911a4048e606c62f98bc4bc3e7|com.example.aservice.SampleServiceName|tag TIME-USED;32;0;0;
+ INFO|2012-09-05 11:53:35,177|JHONDOE|a3239dbfae91b4911a4048e606c62f98bc4bc3e7|a3239dbfae91b4911a4048e606c62f98bc4bc3e7|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:53:35,615|JHONDOE|dd464dc6a45d73fac90f1aefa30cef8d8493781f|dd464dc6a45d73fac90f1aefa30cef8d8493781f|com.example.bservice.OtherServiceName|update TIME-USED;735;0;0;
+ INFO|2012-09-05 11:53:35,864|JHONDOE|ca1b9e6102cd7d89a59a0e45f4ffd1d73e7c2c71|ca1b9e6102cd7d89a59a0e45f4ffd1d73e7c2c71|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:53:35,864|JHONDOE|a3239dbfae91b4911a4048e606c62f98bc4bc3e7|a3239dbfae91b4911a4048e606c62f98bc4bc3e7|com.example.bservice.OtherServiceName|update TIME-USED;749;0;0;
+ INFO|2012-09-05 11:53:35,896|JHONDOE|ca1b9e6102cd7d89a59a0e45f4ffd1d73e7c2c71|ca1b9e6102cd7d89a59a0e45f4ffd1d73e7c2c71|com.example.aservice.SampleServiceName|tag TIME-USED;32;0;0;
+ INFO|2012-09-05 11:53:35,943|JHONDOE|ca1b9e6102cd7d89a59a0e45f4ffd1d73e7c2c71|ca1b9e6102cd7d89a59a0e45f4ffd1d73e7c2c71|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 11:53:36,271|JHONDOE|ca1b9e6102cd7d89a59a0e45f4ffd1d73e7c2c71|ca1b9e6102cd7d89a59a0e45f4ffd1d73e7c2c71|com.example.bservice.OtherServiceName|update TIME-USED;375;0;0;
+ INFO|2012-09-05 12:03:58,767|JHONDOE|42efa0c5d10bf5d02f3ee4e70ed800dc8450b155|42efa0c5d10bf5d02f3ee4e70ed800dc8450b155|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 12:03:59,079|JHONDOE|42efa0c5d10bf5d02f3ee4e70ed800dc8450b155|42efa0c5d10bf5d02f3ee4e70ed800dc8450b155|com.example.aservice.SampleServiceName|get TIME-USED;312;0;0;
+ INFO|2012-09-05 12:14:03,093|JHONDOE|e25403d09efe4c32a63e15c13c844887d66e0417|e25403d09efe4c32a63e15c13c844887d66e0417|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 12:14:03,140|JHONDOE|e25403d09efe4c32a63e15c13c844887d66e0417|e25403d09efe4c32a63e15c13c844887d66e0417|com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 12:14:07,171|JHONDOE|ac84e0cd03f7ba2b6fd2487baf583c94dffd5ad9|ac84e0cd03f7ba2b6fd2487baf583c94dffd5ad9|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 12:14:07,202|JHONDOE|ac84e0cd03f7ba2b6fd2487baf583c94dffd5ad9|ac84e0cd03f7ba2b6fd2487baf583c94dffd5ad9|com.example.aservice.SampleServiceName|tag TIME-USED;31;0;0;
+ INFO|2012-09-05 12:14:07,436|JHONDOE|d3aea3da55a2548d15849474ee6a6d75e1defc51|d3aea3da55a2548d15849474ee6a6d75e1defc51|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 12:14:07,452|JHONDOE|d3aea3da55a2548d15849474ee6a6d75e1defc51|d3aea3da55a2548d15849474ee6a6d75e1defc51|com.example.aservice.SampleServiceName|tag TIME-USED;16;0;0;
+ INFO|2012-09-05 12:14:08,780|JHONDOE|682f579d8b929d025f28e3387b39f9ca1033baf6|682f579d8b929d025f28e3387b39f9ca1033baf6|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 12:14:08,827|JHONDOE|682f579d8b929d025f28e3387b39f9ca1033baf6|682f579d8b929d025f28e3387b39f9ca1033baf6|com.example.aservice.SampleServiceName|tag TIME-USED;47;0;0;
+ INFO|2012-09-05 12:14:09,014|JHONDOE|3c97f4d574a2467f332642e4fd1394ea2eae825c|3c97f4d574a2467f332642e4fd1394ea2eae825c|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 12:14:09,045|JHONDOE|3c97f4d574a2467f332642e4fd1394ea2eae825c|3c97f4d574a2467f332642e4fd1394ea2eae825c|com.example.aservice.SampleServiceName|tag TIME-USED;31;0;0;
+ INFO|2012-09-05 12:14:09,764|JHONDOE|5b7e1e25914bff63d4bf3ff16360eb9e3163edac|5b7e1e25914bff63d4bf3ff16360eb9e3163edac|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 12:14:09,795|JHONDOE|5b7e1e25914bff63d4bf3ff16360eb9e3163edac|5b7e1e25914bff63d4bf3ff16360eb9e3163edac|com.example.aservice.SampleServiceName|tag TIME-USED;31;0;0;
+ INFO|2012-09-05 12:14:38,118|JHONDOE|bd735e73d57c9e0bb0271ba59e4b214048613c47|bd735e73d57c9e0bb0271ba59e4b214048613c47|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 12:14:38,164|JHONDOE|bd735e73d57c9e0bb0271ba59e4b214048613c47|bd735e73d57c9e0bb0271ba59e4b214048613c47|com.example.aservice.SampleServiceName|tag TIME-USED;46;0;0;
+ INFO|2012-09-05 12:16:14,597|JHONDOE|b5fdeefca09779c45f145548e61f20c82abe729f|b5fdeefca09779c45f145548e61f20c82abe729f|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 12:16:14,628|JHONDOE|b5fdeefca09779c45f145548e61f20c82abe729f|b5fdeefca09779c45f145548e61f20c82abe729f|com.example.aservice.SampleServiceName|tag TIME-USED;31;0;0;
+ INFO|2012-09-05 14:22:20,540|JHONDOE|b55be7ade87b7c4bc82d16a4fe802e142ff6df79|b55be7ade87b7c4bc82d16a4fe802e142ff6df79|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:22:20,618|JHONDOE|b55be7ade87b7c4bc82d16a4fe802e142ff6df79|b55be7ade87b7c4bc82d16a4fe802e142ff6df79|com.example.aservice.SampleServiceName|tag TIME-USED;78;0;0;
+ INFO|2012-09-05 14:30:54,458|JHONDOE|8ca299db79fb50858cef82271443fc053bdcfa67|8ca299db79fb50858cef82271443fc053bdcfa67|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:30:54,489|JHONDOE|8ca299db79fb50858cef82271443fc053bdcfa67|8ca299db79fb50858cef82271443fc053bdcfa67|com.example.aservice.SampleServiceName|tag TIME-USED;46;0;0;
+ INFO|2012-09-05 14:30:54,505|JHONDOE|8ca299db79fb50858cef82271443fc053bdcfa67|8ca299db79fb50858cef82271443fc053bdcfa67|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:30:54,864|JHONDOE|8ca299db79fb50858cef82271443fc053bdcfa67|8ca299db79fb50858cef82271443fc053bdcfa67|com.example.bservice.OtherServiceName|update TIME-USED;375;0;0;
+ INFO|2012-09-05 14:48:49,804|SCOTTIG|88df2f14e50e277343f0fcc952b269d62f893803|88df2f14e50e277343f0fcc952b269d62f893803|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:48:49,883|SCOTTIG|88df2f14e50e277343f0fcc952b269d62f893803|88df2f14e50e277343f0fcc952b269d62f893803|com.example.aservice.SampleServiceName|get TIME-USED;79;0;0;
+ INFO|2012-09-05 14:48:52,554|JHONDOE|6b65bcccc90d201a12455569a5006cc554f200a7|6b65bcccc90d201a12455569a5006cc554f200a7|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:48:52,601|JHONDOE|6b65bcccc90d201a12455569a5006cc554f200a7|6b65bcccc90d201a12455569a5006cc554f200a7|com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 14:48:53,475|ADMINIS|589256dfa7f8ac44a257c4cc122473e00b64b22a|589256dfa7f8ac44a257c4cc122473e00b64b22a|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:48:53,491|ADMINIS|589256dfa7f8ac44a257c4cc122473e00b64b22a|589256dfa7f8ac44a257c4cc122473e00b64b22a|com.example.aservice.SampleServiceName|list TIME-USED;16;0;0;
+ INFO|2012-09-05 14:48:55,772|JHONDOE|8a58dfa5cf66088510378b84c105d54df872e4d3|8a58dfa5cf66088510378b84c105d54df872e4d3|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:48:55,803|JHONDOE|8a58dfa5cf66088510378b84c105d54df872e4d3|8a58dfa5cf66088510378b84c105d54df872e4d3|com.example.aservice.SampleServiceName|get TIME-USED;31;0;0;
+ INFO|2012-09-05 14:48:55,819|SCOTTIG|e8f66d1d9066b589ef476d5d522d3b044b2762e0|e8f66d1d9066b589ef476d5d522d3b044b2762e0|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:48:56,116|SCOTTIG|e8f66d1d9066b589ef476d5d522d3b044b2762e0|e8f66d1d9066b589ef476d5d522d3b044b2762e0|com.example.aservice.SampleServiceName|get TIME-USED;344;0;0;
+ INFO|2012-09-05 14:48:56,897|JHONDOE|c3bfbe04a23429127b9ed684a343874f2e73ebce|c3bfbe04a23429127b9ed684a343874f2e73ebce|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:48:56,912|JHONDOE|c3bfbe04a23429127b9ed684a343874f2e73ebce|c3bfbe04a23429127b9ed684a343874f2e73ebce|com.example.aservice.SampleServiceName|list TIME-USED;15;0;0;
+ INFO|2012-09-05 14:48:57,100|ADMINIS|9cbf8303364a56e5ffc3e8ba116463a9b0992fdc|9cbf8303364a56e5ffc3e8ba116463a9b0992fdc|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:48:57,131|ADMINIS|9cbf8303364a56e5ffc3e8ba116463a9b0992fdc|9cbf8303364a56e5ffc3e8ba116463a9b0992fdc|com.example.aservice.SampleServiceName|get TIME-USED;31;0;0;
+ INFO|2012-09-05 14:48:58,178|ADMINIS|4067ef8e85b038082391975a79fd8e555c88ece5|4067ef8e85b038082391975a79fd8e555c88ece5|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:48:58,209|ADMINIS|4067ef8e85b038082391975a79fd8e555c88ece5|4067ef8e85b038082391975a79fd8e555c88ece5|com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 14:48:58,943|SCOTTIG|7c8b1e12856f5d9bc8dd801343ebc804db71d945|7c8b1e12856f5d9bc8dd801343ebc804db71d945|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:48:58,990|SCOTTIG|7c8b1e12856f5d9bc8dd801343ebc804db71d945|7c8b1e12856f5d9bc8dd801343ebc804db71d945|com.example.aservice.SampleServiceName|list TIME-USED;47;0;0;
+ INFO|2012-09-05 14:48:59,740|JHONDOE|cd239efb54406ae57f93ad4f7a536cf6aa753f8b|cd239efb54406ae57f93ad4f7a536cf6aa753f8b|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:48:59,771|JHONDOE|cd239efb54406ae57f93ad4f7a536cf6aa753f8b|cd239efb54406ae57f93ad4f7a536cf6aa753f8b|com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 14:49:00,536|SCOTTIG|1aee42fd5e14c7b9842225813923d05a35c71257|1aee42fd5e14c7b9842225813923d05a35c71257|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:49:00,583|SCOTTIG|1aee42fd5e14c7b9842225813923d05a35c71257|1aee42fd5e14c7b9842225813923d05a35c71257|com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 14:49:00,724|ADMINIS|13f3a2cffa824a5f8f32453e719219a2a37c66d4|13f3a2cffa824a5f8f32453e719219a2a37c66d4|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:49:00,740|ADMINIS|13f3a2cffa824a5f8f32453e719219a2a37c66d4|13f3a2cffa824a5f8f32453e719219a2a37c66d4|com.example.aservice.SampleServiceName|list TIME-USED;32;0;0;
+ INFO|2012-09-05 14:49:01,614|ADMINIS|faadcdb18fd88f5e48dcafd45ca9fa418b56eea7|faadcdb18fd88f5e48dcafd45ca9fa418b56eea7|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:49:01,802|ADMINIS|faadcdb18fd88f5e48dcafd45ca9fa418b56eea7|faadcdb18fd88f5e48dcafd45ca9fa418b56eea7|com.example.aservice.SampleServiceName|get TIME-USED;188;0;0;
+ INFO|2012-09-05 14:49:35,404|JHONDOE|ceeeb482ca5b7bdca4c9b2004e181163b7b71efe|ceeeb482ca5b7bdca4c9b2004e181163b7b71efe|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:49:35,450|JHONDOE|ceeeb482ca5b7bdca4c9b2004e181163b7b71efe|ceeeb482ca5b7bdca4c9b2004e181163b7b71efe|com.example.aservice.SampleServiceName|get TIME-USED;46;0;0;
+ INFO|2012-09-05 14:51:32,721|JHONDOE|fde253a3648d4c83998d007c926d124bb10cde0e|fde253a3648d4c83998d007c926d124bb10cde0e|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:32,768|JHONDOE|fde253a3648d4c83998d007c926d124bb10cde0e|fde253a3648d4c83998d007c926d124bb10cde0e|com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 14:51:33,705|JHONDOE|4d921837041838077336c3d086b4b48e742949db|4d921837041838077336c3d086b4b48e742949db|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:33,721|JHONDOE|4d921837041838077336c3d086b4b48e742949db|4d921837041838077336c3d086b4b48e742949db|com.example.aservice.SampleServiceName|list TIME-USED;16;0;0;
+ INFO|2012-09-05 14:51:33,909|SCOTTIG|c8b5a5bc3d81f690109a7a9e355c273a8fc7c043|c8b5a5bc3d81f690109a7a9e355c273a8fc7c043|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:34,002|SCOTTIG|c8b5a5bc3d81f690109a7a9e355c273a8fc7c043|c8b5a5bc3d81f690109a7a9e355c273a8fc7c043|com.example.aservice.SampleServiceName|get TIME-USED;93;0;0;
+ INFO|2012-09-05 14:51:35,018|SCOTTIG|5b7e3177cf192236c5c8071240a89bdfa2875758|5b7e3177cf192236c5c8071240a89bdfa2875758|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:35,252|SCOTTIG|5b7e3177cf192236c5c8071240a89bdfa2875758|5b7e3177cf192236c5c8071240a89bdfa2875758|com.example.aservice.SampleServiceName|get TIME-USED;234;0;0;
+ INFO|2012-09-05 14:51:35,471|ADMINIS|795c7241402d8aabb7f9e6058d8549ebb7831c0d|795c7241402d8aabb7f9e6058d8549ebb7831c0d|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:35,486|ADMINIS|795c7241402d8aabb7f9e6058d8549ebb7831c0d|795c7241402d8aabb7f9e6058d8549ebb7831c0d|com.example.aservice.SampleServiceName|list TIME-USED;15;0;0;
+ INFO|2012-09-05 14:51:36,236|JHONDOE|4d36adb4bd8e2a40c35b4aafa3e79a1aedaf271d|4d36adb4bd8e2a40c35b4aafa3e79a1aedaf271d|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:36,252|JHONDOE|4d36adb4bd8e2a40c35b4aafa3e79a1aedaf271d|4d36adb4bd8e2a40c35b4aafa3e79a1aedaf271d|com.example.aservice.SampleServiceName|list TIME-USED;16;0;0;
+ INFO|2012-09-05 14:51:36,611|ADMINIS|c6f710350a915e840131f57c400e671f61558ad3|c6f710350a915e840131f57c400e671f61558ad3|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:36,689|ADMINIS|c6f710350a915e840131f57c400e671f61558ad3|c6f710350a915e840131f57c400e671f61558ad3|com.example.aservice.SampleServiceName|get TIME-USED;78;0;0;
+ INFO|2012-09-05 14:51:37,298|SCOTTIG|29c27173ccc9a6617022b1670d172ef4e32dcfdd|29c27173ccc9a6617022b1670d172ef4e32dcfdd|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:37,345|SCOTTIG|29c27173ccc9a6617022b1670d172ef4e32dcfdd|29c27173ccc9a6617022b1670d172ef4e32dcfdd|com.example.aservice.SampleServiceName|list TIME-USED;47;0;0;
+ INFO|2012-09-05 14:51:37,517|JHONDOE|a54750b48fbcee77f4e35d7b78e43e6c7c329c97|a54750b48fbcee77f4e35d7b78e43e6c7c329c97|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:37,548|JHONDOE|a54750b48fbcee77f4e35d7b78e43e6c7c329c97|a54750b48fbcee77f4e35d7b78e43e6c7c329c97|com.example.aservice.SampleServiceName|get TIME-USED;31;0;0;
+ INFO|2012-09-05 14:51:38,783|SCOTTIG|ac64e56f45299ab57f948c606809216d67258c9f|ac64e56f45299ab57f948c606809216d67258c9f|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:38,829|SCOTTIG|ac64e56f45299ab57f948c606809216d67258c9f|ac64e56f45299ab57f948c606809216d67258c9f|com.example.aservice.SampleServiceName|get TIME-USED;46;0;0;
+ INFO|2012-09-05 14:51:39,220|ADMINIS|768d71a20d3f2d3aafb91ad04c1e3c4a3324fa68|768d71a20d3f2d3aafb91ad04c1e3c4a3324fa68|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:39,251|ADMINIS|768d71a20d3f2d3aafb91ad04c1e3c4a3324fa68|768d71a20d3f2d3aafb91ad04c1e3c4a3324fa68|com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 14:51:40,063|ADMINIS|2efcaeda95e8b21226793f5659436dc2245af24d|2efcaeda95e8b21226793f5659436dc2245af24d|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:40,188|ADMINIS|2efcaeda95e8b21226793f5659436dc2245af24d|2efcaeda95e8b21226793f5659436dc2245af24d|com.example.aservice.SampleServiceName|get TIME-USED;125;0;0;
+ INFO|2012-09-05 14:51:40,204|JHONDOE|929e73cd21904ceb25759d9f74568792fe1562b6|929e73cd21904ceb25759d9f74568792fe1562b6|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:40,235|JHONDOE|929e73cd21904ceb25759d9f74568792fe1562b6|929e73cd21904ceb25759d9f74568792fe1562b6|com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 14:51:41,079|JHONDOE|4d18385a2ff2b8e85029a7ab879f9852df7f6942|4d18385a2ff2b8e85029a7ab879f9852df7f6942|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:41,110|JHONDOE|4d18385a2ff2b8e85029a7ab879f9852df7f6942|4d18385a2ff2b8e85029a7ab879f9852df7f6942|com.example.aservice.SampleServiceName|get TIME-USED;31;0;0;
+ INFO|2012-09-05 14:51:41,313|SCOTTIG|bd3d1183fa9e3f9bad70e42d0a8c4039d2e175fc|bd3d1183fa9e3f9bad70e42d0a8c4039d2e175fc|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:51:41,532|SCOTTIG|bd3d1183fa9e3f9bad70e42d0a8c4039d2e175fc|bd3d1183fa9e3f9bad70e42d0a8c4039d2e175fc|com.example.aservice.SampleServiceName|get TIME-USED;219;0;0;
+ INFO|2012-09-05 14:53:28,992|JHONDOE|2c42931d7f11485384c9677b78f97588a7ad8238|2c42931d7f11485384c9677b78f97588a7ad8238|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:53:29,070|JHONDOE|2c42931d7f11485384c9677b78f97588a7ad8238|2c42931d7f11485384c9677b78f97588a7ad8238|com.example.aservice.SampleServiceName|get TIME-USED;78;0;0;
+ INFO|2012-09-05 14:56:10,924|JHONDOE|a7667efa97554505e89fb98d42c7683401e47966|a7667efa97554505e89fb98d42c7683401e47966|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:10,971|JHONDOE|a7667efa97554505e89fb98d42c7683401e47966|a7667efa97554505e89fb98d42c7683401e47966|com.example.aservice.SampleServiceName|list TIME-USED;47;0;0;
+ INFO|2012-09-05 14:56:11,830|JHONDOE|b6a6a121a391ff909e965758f1f5f5642216c144|b6a6a121a391ff909e965758f1f5f5642216c144|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:11,877|JHONDOE|b6a6a121a391ff909e965758f1f5f5642216c144|b6a6a121a391ff909e965758f1f5f5642216c144|com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 14:56:12,065|SCOTTIG|1d48f4407a90d7de1e388fcfcaa6f826216bd480|1d48f4407a90d7de1e388fcfcaa6f826216bd480|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:12,080|SCOTTIG|1d48f4407a90d7de1e388fcfcaa6f826216bd480|1d48f4407a90d7de1e388fcfcaa6f826216bd480|com.example.aservice.SampleServiceName|list TIME-USED;15;0;0;
+ INFO|2012-09-05 14:56:12,689|SCOTTIG|ec2fc45a9000e567df3110ca6235ebccfb5d3d1f|ec2fc45a9000e567df3110ca6235ebccfb5d3d1f|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:12,752|SCOTTIG|ec2fc45a9000e567df3110ca6235ebccfb5d3d1f|ec2fc45a9000e567df3110ca6235ebccfb5d3d1f|com.example.aservice.SampleServiceName|get TIME-USED;63;0;0;
+ INFO|2012-09-05 14:56:13,205|ADMINIS|98da26ac4059a069cc53e8e175134cc6bc5f4478|98da26ac4059a069cc53e8e175134cc6bc5f4478|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:13,252|ADMINIS|98da26ac4059a069cc53e8e175134cc6bc5f4478|98da26ac4059a069cc53e8e175134cc6bc5f4478|com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 14:56:13,970|JHONDOE|e274567e765d0d5fab7cea226a53b1f01862988b|e274567e765d0d5fab7cea226a53b1f01862988b|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:14,017|JHONDOE|e274567e765d0d5fab7cea226a53b1f01862988b|e274567e765d0d5fab7cea226a53b1f01862988b|com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 14:56:14,127|ADMINIS|bea64cf4f21397c172dd4c1c3aba352b002843a8|bea64cf4f21397c172dd4c1c3aba352b002843a8|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:14,173|ADMINIS|bea64cf4f21397c172dd4c1c3aba352b002843a8|bea64cf4f21397c172dd4c1c3aba352b002843a8|com.example.aservice.SampleServiceName|get TIME-USED;46;0;0;
+ INFO|2012-09-05 14:56:14,970|JHONDOE|23ad6b0a21dfb9b360155dd797b429c74d1f1e8b|23ad6b0a21dfb9b360155dd797b429c74d1f1e8b|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:15,001|JHONDOE|23ad6b0a21dfb9b360155dd797b429c74d1f1e8b|23ad6b0a21dfb9b360155dd797b429c74d1f1e8b|com.example.aservice.SampleServiceName|get TIME-USED;31;0;0;
+ INFO|2012-09-05 14:56:15,407|ADMINIS|82c83b570c27dedc52964251b972d3585c42bd62|82c83b570c27dedc52964251b972d3585c42bd62|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:15,439|ADMINIS|82c83b570c27dedc52964251b972d3585c42bd62|82c83b570c27dedc52964251b972d3585c42bd62|com.example.aservice.SampleServiceName|list TIME-USED;32;0;0;
+ INFO|2012-09-05 14:56:16,532|ADMINIS|d2f2f39424062cea79e987c7e122fb0dd2378232|d2f2f39424062cea79e987c7e122fb0dd2378232|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:16,563|ADMINIS|d2f2f39424062cea79e987c7e122fb0dd2378232|d2f2f39424062cea79e987c7e122fb0dd2378232|com.example.aservice.SampleServiceName|get TIME-USED;31;0;0;
+ INFO|2012-09-05 14:56:16,595|SCOTTIG|dd5d14792602b6284d6b5dc8bc7a674322c5fc65|dd5d14792602b6284d6b5dc8bc7a674322c5fc65|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:16,626|SCOTTIG|dd5d14792602b6284d6b5dc8bc7a674322c5fc65|dd5d14792602b6284d6b5dc8bc7a674322c5fc65|com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 14:56:17,548|ADMINIS|d24d4a46f52fa3d8716f41cb51c6cf86153b8f57|d24d4a46f52fa3d8716f41cb51c6cf86153b8f57|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:17,704|ADMINIS|d24d4a46f52fa3d8716f41cb51c6cf86153b8f57|d24d4a46f52fa3d8716f41cb51c6cf86153b8f57|com.example.aservice.SampleServiceName|get TIME-USED;156;0;0;
+ INFO|2012-09-05 14:56:17,907|JHONDOE|f402ce6d01994f6b878dfdf2c382c971b95f3cb0|f402ce6d01994f6b878dfdf2c382c971b95f3cb0|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:17,922|JHONDOE|f402ce6d01994f6b878dfdf2c382c971b95f3cb0|f402ce6d01994f6b878dfdf2c382c971b95f3cb0|com.example.aservice.SampleServiceName|list TIME-USED;15;0;0;
+ INFO|2012-09-05 14:56:18,719|JHONDOE|9f15bc44be8738dfababa1d9a99b2698365233b3|9f15bc44be8738dfababa1d9a99b2698365233b3|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:18,750|JHONDOE|9f15bc44be8738dfababa1d9a99b2698365233b3|9f15bc44be8738dfababa1d9a99b2698365233b3|com.example.aservice.SampleServiceName|list TIME-USED;31;0;0;
+ INFO|2012-09-05 14:56:18,797|SCOTTIG|1f0bebee7e4379735a1bf979de1bd1c1b178df1d|1f0bebee7e4379735a1bf979de1bd1c1b178df1d|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:18,844|SCOTTIG|1f0bebee7e4379735a1bf979de1bd1c1b178df1d|1f0bebee7e4379735a1bf979de1bd1c1b178df1d|com.example.aservice.SampleServiceName|get TIME-USED;47;0;0;
+ INFO|2012-09-05 14:56:32,966|JHONDOE|69ecb9b08ec050de10dff720cf34b68f701fd1d2|69ecb9b08ec050de10dff720cf34b68f701fd1d2|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 14:56:33,028|JHONDOE|69ecb9b08ec050de10dff720cf34b68f701fd1d2|69ecb9b08ec050de10dff720cf34b68f701fd1d2|com.example.aservice.SampleServiceName|tag TIME-USED;62;0;0;
+ INFO|2012-09-05 14:56:33,060|JHONDOE|69ecb9b08ec050de10dff720cf34b68f701fd1d2|69ecb9b08ec050de10dff720cf34b68f701fd1d2|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 15:00:00,121|JHONDOE|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 15:00:00,668|JHONDOE|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|com.example.aservice.SampleServiceName|tag TIME-USED;547;0;0;
+ INFO|2012-09-05 15:00:00,684|JHONDOE|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 15:04:53,553|JHONDOE|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 15:04:53,585|JHONDOE|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|com.example.aservice.SampleServiceName|tag TIME-USED;32;0;0;
+ INFO|2012-09-05 15:04:53,616|JHONDOE|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|83cfbfe4b4417b4d0d862a3faf15c001599afcfa|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 15:08:03,650|JHONDOE|218bab18062d880c8776e20243989d8ceef209d2|218bab18062d880c8776e20243989d8ceef209d2|com.example.fwk.entity.AuthentifiedDataSource|unable retrieve authentication information null
+ INFO|2012-09-05 15:08:03,728|JHONDOE|218bab18062d880c8776e20243989d8ceef209d2|218bab18062d880c8776e20243989d8ceef209d2|com.example.aservice.SampleServiceName|get TIME-USED;78;0;0;

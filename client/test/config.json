@@ -1,0 +1,10 @@
+{
+  "env" : "prod",
+  "type" : "frontend",
+  "reload" : 1800000,
+  "throttle" : 200,
+  "offline" : true,
+  "serverconfig" : {
+    "url" : "http://localhost:3000"
+  }
+}
