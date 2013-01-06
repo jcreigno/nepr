@@ -34,7 +34,7 @@ var routes = data(config.db);
 
 app.get('/stats/:env', routes.stats);
 app.get('/stats/:env/:service', routes.stats);
-app.get('/stats/:env/:service/:opera', routes.stats);
+app.get('/stats/:env/:service/:operation', routes.stats);
 
 app.get('/perfs/:env/:service', routes.perfs);
 app.get('/perfs/:env/:service/:operation', routes.perfs);
