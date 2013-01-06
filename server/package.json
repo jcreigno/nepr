@@ -22,6 +22,7 @@
     "jade": "*",
     "less-middleware": "*",
     "mongodb": "~1.2.7",
-    "underscore": "~1.4.3"
+    "underscore": "~1.4.3",
+    "event-stream": "~3.0.10"
   }
 }

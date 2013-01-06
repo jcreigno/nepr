@@ -29,18 +29,24 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-//app.get('/stats/:env/:service', routes.index);
-//app.get('/stats/:env/:service/:opera', routes.index);
+var config = require(path.join(__dirname, './config.json'));
+var routes = data(config.db);
 
-//app.get('/perfs/:env/:service', routes.index);
-//app.get('/perfs/:env/:service/:opera', routes.index);
+app.get('/stats/:env', routes.stats);
+app.get('/stats/:env/:service', routes.stats);
+app.get('/stats/:env/:service/:opera', routes.stats);
 
-//app.get('/errors/:env', routes.index);
+app.get('/perfs/:env/:service', routes.perfs);
+app.get('/perfs/:env/:service/:operation', routes.perfs);
+
+app.get('/errors/:env', routes.errors);
+app.get('/errors/:env/:service', routes.errors);
+app.get('/errors/:env/:service/:operation', routes.errors);
 
 //app.get(/traces/:env/:requestid', routes.index);
-//app..get('/traces/:env', routes.index);
+//app.get('/traces/:env', routes.index);
 
-app.post('/data/:env/:couche/:machine', data.addEvents);
+app.post('/data/:env/:couche/:machine', routes.events);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
