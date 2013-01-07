@@ -64,7 +64,7 @@ module.exports = function(options) {
 
   var collectionStream = function(name){
     return function(req, res){
-      var p = _.pick(req.params, 'env', 'service', 'operation');
+      var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
       var sort = {date: -1};
       res.setHeader('Content-Type', 'application/json');
       db.collection(name, function(err, col) {
