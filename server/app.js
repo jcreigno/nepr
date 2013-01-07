@@ -43,8 +43,8 @@ app.get('/errors/:env', routes.errors);
 app.get('/errors/:env/:service', routes.errors);
 app.get('/errors/:env/:service/:operation', routes.errors);
 
-//app.get(/traces/:env/:requestid', routes.index);
-//app.get('/traces/:env', routes.index);
+app.get('/traces/:env/:requestid', routes.perfs);
+app.get('/traces/:env', routes.perfs);
 
 app.post('/data/:env/:couche/:machine', routes.events);
 
