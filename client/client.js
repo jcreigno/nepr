@@ -42,7 +42,7 @@ var DEFAULT_LOCAL = 'remote-config';
  */
 function configFile(version){
   var v = version || DEFAULT_LOCAL;
-  return path.join(basedir, version + '.js');
+  return path.join(basedir, v + '.js');
 }
 
 /**
