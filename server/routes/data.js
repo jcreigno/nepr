@@ -38,15 +38,16 @@ var def = {
   dbname : 'nepr'
 };
 
-module.exports = function(options) {
+module.exports = function(options, readycb) {
   var config = _.defaults(options, def);
   var server = new Server(config.host, config.port, {auto_reconnect: true});
-  db = new Db(config.dbname, server,  {safe:true});
+  var db = new Db(config.dbname, server,  {safe:true});
 
   db.open(function(err, db) {
     if(!err) {
       console.log("Connected to '" + config.dbname + "' database");
     }
+    readycb(err,db);
   });
 
   var sendError = function(res, msg, err){
