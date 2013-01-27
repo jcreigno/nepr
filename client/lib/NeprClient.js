@@ -23,26 +23,24 @@ function NeprClient (config){
     , config.type
     , os.hostname() ].join('/');
   self.client = request.defaults({url: post, 'json': true});
-
+  /**
+   send data to NeprServer and throttle calls. This method expects 2 arrays in {vars} : 
+   {lines} and {errors}.
+   @param {object-literal} vars extracted data.
+  */
+  self.send = _.throttle(function sendPerfData (vars){
+    var data = vars.lines.splice(0, vars.lines.length);
+    var errors = vars.errors.splice(0, vars.errors.length);
+    data = data.concat(errors);
+    this.client.post({body:data},
+      function(err, res){
+        if(err){
+          this.logger.error(err);
+          this.logger.error(res);
+        }
+      });
+  }, this.throttle);
 }
-
-/**
- send data to NeprServer and throttle calls. This method expects 2 arrays in {vars} : 
- {lines} and {errors}.
- @param {object-literal} vars extracted data.
-*/
-NeprClient.prototype.send = _.throttle(function sendPerfData (vars){
-  var data = vars.lines.splice(0, vars.lines.length);
-  var errors = vars.errors.splice(0, vars.errors.length);
-  data = data.concat(errors);
-  this.client.post({body:data},
-    function(err, res){
-      if(err){
-        this.logger.error(err);
-        this.logger.error(res);
-      }
-    });
-}, this.throttle).bind(NeprClient.prototype);
 
 
 /**
