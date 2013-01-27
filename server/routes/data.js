@@ -47,7 +47,9 @@ module.exports = function(options, readycb) {
     if(!err) {
       console.log("Connected to '" + config.dbname + "' database");
     }
-    readycb(err,db);
+    if(readycb){
+      readycb(err,db);
+    }
   });
 
   var sendError = function(res, msg, err){
