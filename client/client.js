@@ -13,8 +13,8 @@ var request = require ('request')
  */
 var logger = new (winston.Logger)({
     transports: [
-      new (winston.transports.Console)()/*,
-      new (winston.transports.File)({ filename: 'nepr-client.log' })*/
+      new (winston.transports.Console)(),
+      new (winston.transports.File)({ filename: 'nepr-client.log' })
     ]
 });
 
@@ -53,7 +53,7 @@ var configVersion;
  * client configuration.
  */
 var config = require(path.join(basedir, 'config.json'));
-config.logger = logger;
+
 /**
  * Nepr Client.
  */
@@ -86,6 +86,9 @@ function retreiveConfiguration (version, callback){
   request({'url':url, 'headers':headers}, function (error, response) {
     if (!error && response.statusCode === 200) {
       newVersion = response.headers.etag;
+      if(newVersion){
+        newVersion = newVersion.replace(/"/g,'');
+      }
     }
   }).pipe(remoteCfgStream);
   return ;
