@@ -73,7 +73,7 @@ module.exports = function(options, readycb) {
     return function(req, res){
       var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
       if(!req.query.date){
-        p.date = { '$lt': todayAtMidnight() };
+        p.date = { '$gt': todayAtMidnight() };
       }
       var sort = {date: -1};
       res.setHeader('Content-Type', 'application/json');
