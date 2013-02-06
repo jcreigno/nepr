@@ -122,7 +122,7 @@ module.exports = function(options, readycb) {
     stats : function(req, res) {
       var p = _.pick(req.params, 'env', 'service', 'operation');
       if(!req.query.date){
-        p.date = { '$lt': todayAtMidnight() };
+        p.date = { '$gt': todayAtMidnight() };
       }
 
       // Group By 'service, operation'
