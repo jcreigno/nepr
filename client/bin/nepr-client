@@ -1,0 +1,13 @@
+#!/bin/sh
+
+basedir=`dirname "$0"`
+
+case `uname` in
+    *CYGWIN*) basedir=`cygpath -w "$basedir"`;;
+esac
+
+if [ -x "$basedir/node.exe" ]; then
+  "$basedir/node.exe" "$basedir/../nepr-client/bin/nepr-client.js" "$@"
+else
+node "$basedir/../nepr-client/bin/nepr-client.js" "$@"
+fi
