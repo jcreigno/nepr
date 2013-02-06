@@ -65,9 +65,16 @@ module.exports = function(options, readycb) {
     res.end();
   };
 
+  var todayAtMidnight = function () {
+    return '2013-02-06T00:00:00.000Z';
+  };
+  
   var collectionStream = function(name){
     return function(req, res){
       var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
+      if(!req.query.date){
+        p.date = { '$lt': todayAtMidnight() };
+      }
       var sort = {date: -1};
       res.setHeader('Content-Type', 'application/json');
       db.collection(name, function(err, col) {
@@ -114,6 +121,9 @@ module.exports = function(options, readycb) {
     perfs : collectionStream('perf'),
     stats : function(req, res) {
       var p = _.pick(req.params, 'env', 'service', 'operation');
+      if(!req.query.date){
+        p.date = { '$lt': todayAtMidnight() };
+      }
 
       // Group By 'service, operation'
       var mapFn = function() {
