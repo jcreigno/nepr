@@ -66,7 +66,7 @@ module.exports = function(options, readycb) {
   };
 
   var todayAtMidnight = function () {
-    return '2013-02-06T00:00:00.000Z';
+    return now.toISOString().replace(/T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/,'T00:00:00.000Z');
   };
   
   var collectionStream = function(name){
