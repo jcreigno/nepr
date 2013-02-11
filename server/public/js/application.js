@@ -211,7 +211,7 @@
                     var w = 500 / chartData.length;
                     return w + "px"
                 }).attr('data-placement', 'left').attr('title', function(d) {
-                    return "[" + todate(d.date).toLocaleTimeString() + "] : " + d.elapsed + "ms";
+                    return "[" + d.date + "] : " + d.elapsed + "ms";
                 });
         };
         self.couche = function(coucheId){
