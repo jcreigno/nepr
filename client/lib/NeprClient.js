@@ -65,6 +65,7 @@ NeprClient.prototype.start = function (remote){
     });
     e.watch(file);
   });
+  return self;
 };
 
 
@@ -78,6 +79,7 @@ NeprClient.prototype.stop = function (){
   });
   self.extractors.splice(0, 0);
   self.logger.info('stop watching');
+  return self;
 };
 
 module.exports = function(ac){
