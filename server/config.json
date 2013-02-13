@@ -1,8 +1,8 @@
 {
   "port" : 3000,
   "db" : {
-    "host" : "wse1268",
+    "host" : "localhost",
     "port" : 27017,
-    "dbname" : "nepr"
+    "dbname" : "conso"
   }
 }
