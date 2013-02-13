@@ -44,7 +44,11 @@ app.get('/errors/:env/:service', routes.errors);
 app.get('/errors/:env/:service/:operation', routes.errors);
 
 app.get('/traces/:env/:requestid', routes.perfs);
-app.get('/traces/:env', routes.perfs);
+app.get('/traces/:env', function(req, res){
+  res.setHeader('Content-Disposition','attachment; filename="perfs-' + req.params.env + '.csv"');
+  routes.perfsCSV(req, res);
+});
+  
 
 app.post('/data/:env/:couche/:machine', routes.events);
 

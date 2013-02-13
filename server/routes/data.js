@@ -1,58 +1,40 @@
-var mongo = require('mongodb')
-  , _ = require('underscore')
-  , es = require('event-stream');
+var mongo = require('mongodb'),
+  _ = require('underscore'),
+  jsonStream = require('../lib/JSONArrayStream'),
+  csvStream = require('../lib/CSVStream');
 
 var Server = mongo.Server,
-    Db = mongo.Db,
-    BSON = mongo.BSONPure;
-
-/** join documents to an Array in response stream.*/
-var arrayStream = function (){
-  var first = true;
-  return es.through(function write(data){
-      if(first) {
-        this.emit('data', '[');
-        first = false;
-      } else{
-        this.emit('data', ',');
-      }
-      this.emit('data', JSON.stringify(data));
-      return true;
-    }, function end(){
-      if(!first) {
-        this.emit('data', ']');
-      } else { // emit valid array
-        this.emit('data', '[]');
-      }
-      this.emit('end');
-      return true;
-    });
-};
+  Db = mongo.Db,
+  BSON = mongo.BSONPure;
 
 /**
  * default backend connection.
  */
 var def = {
-  host : 'localhost',
-  port : 27017,
-  dbname : 'nepr'
+  host: 'localhost',
+  port: 27017,
+  dbname: 'nepr'
 };
 
-module.exports = function(options, readycb) {
+module.exports = function (options, readycb) {
   var config = _.defaults(options, def);
-  var server = new Server(config.host, config.port, {auto_reconnect: true});
-  var db = new Db(config.dbname, server,  {safe:true});
+  var server = new Server(config.host, config.port, {
+    auto_reconnect: true
+  });
+  var db = new Db(config.dbname, server, {
+    safe: true
+  });
 
-  db.open(function(err, db) {
-    if(!err) {
+  db.open(function (err, db) {
+    if (!err) {
       console.log("Connected to '" + config.dbname + "' database");
     }
-    if(readycb){
-      readycb(err,db);
+    if (readycb) {
+      readycb(err, db);
     }
   });
 
-  var sendError = function(res, msg, err){
+  var sendError = function (res, msg, err) {
     var body = JSON.stringify({
       'message': msg,
       'error': err
@@ -71,51 +53,54 @@ module.exports = function(options, readycb) {
 	var curr_month = now.getMonth() + 1; //Months are zero based
 	var curr_year = now.getFullYear();
 	return curr_year + '-' + (curr_month<=9?'0'+curr_month:curr_month) + '-' + curr_date;
-    // return new Date().toISOString().replace(/T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/,'T00:00:00.000Z');
   };
-  
-  var collectionStream = function(name){
-    return function(req, res){
+
+  var collectionStream = function (name, outputFormat) {
+    var output = outputFormat || jsonStream();
+    return function (req, res) {
       var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
       var startingDate = (req.query.startingDate || today()) + 'T00:00:00.000Z';
       var endingDate = (req.query.endingDate || today()) + 'T23:59:59.999Z';
 	  p.date = {'$gte' : startingDate, '$lte' : endingDate};
 	   
-      var sort = {date: -1};
-      res.setHeader('Content-Type', 'application/json');
-      db.collection(name, function(err, col) {
-        if(err){
-          sendError(res, 'unable to read collection ' + name , err);
-        } else {
-          col.find(p).sort(sort).stream()
-            .pipe(arrayStream())
-            .pipe(res);
+      var sort = {
+        date: -1
+      };
+      db.collection(name, function (err, col) {
+        if (err) {
+          sendError(res, 'unable to read collection ' + name, err);
+        }
+        else {
+          output.writeHeaders(req, res);
+          col.find(p).sort(sort).stream().pipe(output.stream()).pipe(res);
         }
       });
     };
   };
 
   return {
-    events : function(req, res){
-      var entete = {"env": req.params.env
-        , "couche": req.params.couche
-        , "machine": req.params.machine
+    events: function (req, res) {
+      var entete = {
+        "env": req.params.env,
+        "couche": req.params.couche,
+        "machine": req.params.machine
       };
 
-      var eventsByType = _.reduce(req.body, function(memo, msg){
-        if(!memo[msg.type]){
+      var eventsByType = _.reduce(req.body, function (memo, msg) {
+        if (!memo[msg.type]) {
           memo[msg.type] = [];
         }
         memo[msg.type].push(_.defaults(msg, entete));
         return memo;
       }, {});
 
-      Object.keys(eventsByType).forEach(function(type){
-        db.collection(type, function(err, col) {
-          col.insert(eventsByType[type], function(err, result) {
+      Object.keys(eventsByType).forEach(function (type) {
+        db.collection(type, function (err, col) {
+          col.insert(eventsByType[type], function (err, result) {
             if (err) {
               console.log('unable to insert perfs message : %s - %s', err);
-            } else{
+            }
+            else {
               console.log('%d inserts.', result.length);
             }
           });
@@ -123,49 +108,58 @@ module.exports = function(options, readycb) {
       });
       res.send(200);
     },
-    errors : collectionStream('error'),
-    perfs : collectionStream('perf'),
-    stats : function(req, res) {
+    errors: collectionStream('error'),
+    perfs: collectionStream('perf'),
+    perfsCSV: collectionStream('perf', csvStream(function (item) {
+      return [item.requestid, item.date, item.couche, item.service, item.operation, item.elapsed].join(';');
+    })),
+    stats: function (req, res) {
       var p = _.pick(req.params, 'env', 'service', 'operation');
       var startingDate = (req.query.startingDate || today()) + 'T00:00:00.000Z';
       var endingDate = (req.query.endingDate || today()) + 'T23:59:59.999Z';
 	  p.date = {'$gte' : startingDate, '$lte' : endingDate};
 
       // Group By 'service, operation'
-      var mapFn = function() {
+      var mapFn = function () {
         emit({
-          service : this.service,
-          operation : this.operation,
-          couche : this.couche
+          service: this.service,
+          operation: this.operation,
+          couche: this.couche
         }, {
-          count : 1,
-          elapsed : this.elapsed
+          count: 1,
+          elapsed: this.elapsed
         });
       };
 
       // Agregate elapsed time
-      var reduceFn = function(key, values) {
-        var result = { count : 0, elapsed : 0};
-        values.forEach(function(val) {
+      var reduceFn = function (key, values) {
+        var result = {
+          count: 0,
+          elapsed: 0
+        };
+        values.forEach(function (val) {
           result.count += val.count;
           result.elapsed += val.elapsed;
         });
         return result;
       };
 
-      db.collection('perf', function(err, col) {
+      db.collection('perf', function (err, col) {
         var options = {
-          'query' : p,
-          'finalize' : function(key, value) { // Calculate average
+          'query': p,
+          'finalize': function (key, value) { // Calculate average
             value.average = value.elapsed / value.count;
             return value;
           },
-          'out' : { inline : 1}
+          'out': {
+            inline: 1
+          }
         };
-        col.mapReduce(mapFn, reduceFn, options, function(err, rescoll) {
-          if(err){
-            sendError(res, 'unable to read stats.' , err);
-          }else{
+        col.mapReduce(mapFn, reduceFn, options, function (err, rescoll) {
+          if (err) {
+            sendError(res, 'unable to read stats.', err);
+          }
+          else {
             res.setHeader('Content-Type', 'application/json');
             res.send(rescoll);
             res.end();
@@ -175,3 +169,4 @@ module.exports = function(options, readycb) {
     }
   };
 };
+

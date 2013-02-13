@@ -24,5 +24,8 @@
     "mongodb": "~1.2.7",
     "underscore": "~1.4.3",
     "event-stream": "~3.0.10"
+  },
+  "devDependencies": {
+    "vows": "~0.7.0"
   }
 }

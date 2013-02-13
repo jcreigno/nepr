@@ -32,14 +32,14 @@ function NeprClient (config){
     var data = vars.lines.splice(0, vars.lines.length);
     var errors = vars.errors.splice(0, vars.errors.length);
     data = data.concat(errors);
-    this.client.post({body:data},
+    self.client.post({body:data},
       function(err, res){
         if(err){
-          this.logger.error(err);
-          this.logger.error(res);
+          self.logger.error(err);
+          self.logger.error(res);
         }
       });
-  }, this.throttle);
+  }, self.throttle);
 }
 
 
@@ -65,6 +65,7 @@ NeprClient.prototype.start = function (remote){
     });
     e.watch(file);
   });
+  return self;
 };
 
 
@@ -78,6 +79,7 @@ NeprClient.prototype.stop = function (){
   });
   self.extractors.splice(0, 0);
   self.logger.info('stop watching');
+  return self;
 };
 
 module.exports = function(ac){
