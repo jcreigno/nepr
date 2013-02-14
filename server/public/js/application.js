@@ -18,6 +18,13 @@
     function trim (string){
         return trimFunc.apply(string);
     }
+	
+	function formatDate(d) {
+		var curr_date = d.getDate();
+		var curr_month = d.getMonth() + 1; //Months are zero based
+		var curr_year = d.getFullYear();
+		return curr_year + '-' + (curr_month<=9?'0'+curr_month:curr_month) + '-' + curr_date;
+	}
 
     var ENVS = [ new Environnement('prod', 'Production')
                 , new Environnement('integr', 'Intégration')
@@ -31,6 +38,21 @@
             , 'reg' : 'Regles'
     };
 
+	  ko.bindingHandlers.datepicker = {
+            init: function (element, valueAccessor, allBindingsAccessor) {
+                //initialize datepicker with some optional options
+                var options = allBindingsAccessor().datepickerOptions || {};
+                $(element).datepicker(options).on("changeDate", function (ev) {
+                    var observable = valueAccessor();
+                    observable(ev.date);
+                });
+            },
+            update: function (element, valueAccessor) {
+                var value = ko.utils.unwrapObservable(valueAccessor());
+                $(element).datepicker("setValue", value);
+            }
+        };
+	
     function AppErrorsViewModel(){
         var self = this;
         // Details for errors
@@ -91,6 +113,10 @@
         self.allEnvironnements = ko.observableArray(ENVS);
         self.environnement = ko.observable(ENVS[0]);
 
+		// Dates
+		self.startingDate = ko.observable(new Date());
+		self.endingDate = ko.observable(new Date());
+		
         // Navigation
         self.currentPage = ko.observable('home');
         self.getClassFor = function(page) {
@@ -143,12 +169,12 @@
             });
         };
         self.loadErrors = function () {
-            $.getJSON('/errors/' + self.environnement().code, function(data) {
+            $.getJSON('/errors/' + self.environnement().code + '?startingDate=' + formatDate(self.startingDate()) + '&endingDate=' + formatDate(self.endingDate()), function(data) {
                 self.errors.all(data);
             });
         };
         self.loadStats = function () {
-            $.getJSON('/stats/' + self.environnement().code, function(data) {
+            $.getJSON('/stats/' + self.environnement().code + '?startingDate=' + formatDate(self.startingDate()) + '&endingDate=' + formatDate(self.endingDate()), function(data) {
                 // Sort data
                 var sortedData = data.sort(function(d1, d2) {
                     return d1.value.count < d2.value.count;
@@ -249,9 +275,12 @@
                 show : 500
             }
         });
+		// Enable date picking
+		$('.datepickerinput').datepicker();
+		
+		ko.applyBindings(model);
 
-        ko.applyBindings(model);
-        // load errors
+		// load errors
         model.loadErrors();
         // load stats
         model.loadStats();

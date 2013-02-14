@@ -47,19 +47,22 @@ module.exports = function (options, readycb) {
     res.end();
   };
 
-  var todayAtMidnight = function () {
-    return new Date().toISOString().replace(/T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}Z/, 'T00:00:00.000Z');
+  var today = function () {
+	var now = new Date();
+	var curr_date = now.getDate();
+	var curr_month = now.getMonth() + 1; //Months are zero based
+	var curr_year = now.getFullYear();
+	return curr_year + '-' + (curr_month<=9?'0'+curr_month:curr_month) + '-' + curr_date;
   };
 
   var collectionStream = function (name, outputFormat) {
     var output = outputFormat || jsonStream();
     return function (req, res) {
       var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
-      if (!req.query.date) {
-        p.date = {
-          '$gt': todayAtMidnight()
-        };
-      }
+      var startingDate = (req.query.startingDate || today()) + 'T00:00:00.000Z';
+      var endingDate = (req.query.endingDate || today()) + 'T23:59:59.999Z';
+	  p.date = {'$gte' : startingDate, '$lte' : endingDate};
+	   
       var sort = {
         date: -1
       };
@@ -112,11 +115,9 @@ module.exports = function (options, readycb) {
     })),
     stats: function (req, res) {
       var p = _.pick(req.params, 'env', 'service', 'operation');
-      if (!req.query.date) {
-        p.date = {
-          '$gt': todayAtMidnight()
-        };
-      }
+      var startingDate = (req.query.startingDate || today()) + 'T00:00:00.000Z';
+      var endingDate = (req.query.endingDate || today()) + 'T23:59:59.999Z';
+	  p.date = {'$gte' : startingDate, '$lte' : endingDate};
 
       // Group By 'service, operation'
       var mapFn = function () {
