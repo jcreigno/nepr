@@ -56,17 +56,21 @@ module.exports = function (options, readycb) {
     curr_date].join('-');
   };
 
+  var predicateFromQuery = function (req) {
+    var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
+    var startingDate = (req.query.startingDate || today()) + 'T00:00:00.000Z';
+    var endingDate = (req.query.endingDate || today()) + 'T23:59:59.999Z';
+    p.date = {
+      '$gte': startingDate,
+      '$lte': endingDate
+    };
+    return p;
+  };
+
   var collectionStream = function (name, outputFormat) {
     var output = outputFormat || jsonStream();
     return function (req, res) {
-      var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
-      var startingDate = (req.query.startingDate || today()) + 'T00:00:00.000Z';
-      var endingDate = (req.query.endingDate || today()) + 'T23:59:59.999Z';
-      p.date = {
-        '$gte': startingDate,
-        '$lte': endingDate
-      };
-
+      var p = predicateFromQuery(req);
       var sort = {
         date: -1
       };
@@ -123,13 +127,7 @@ module.exports = function (options, readycb) {
       item.elapsed].join(';');
     })),
     stats: function (req, res) {
-      var p = _.pick(req.params, 'env', 'service', 'operation');
-      var startingDate = (req.query.startingDate || today()) + 'T00:00:00.000Z';
-      var endingDate = (req.query.endingDate || today()) + 'T23:59:59.999Z';
-      p.date = {
-        '$gte': startingDate,
-        '$lte': endingDate
-      };
+      var p = predicateFromQuery(req);
 
       // Group By 'service, operation'
       var mapFn = function () {
