@@ -48,11 +48,13 @@ module.exports = function (options, readycb) {
   };
 
   var today = function () {
-	var now = new Date();
-	var curr_date = now.getDate();
-	var curr_month = now.getMonth() + 1; //Months are zero based
-	var curr_year = now.getFullYear();
-	return curr_year + '-' + (curr_month<=9?'0'+curr_month:curr_month) + '-' + curr_date;
+    var now = new Date();
+    var curr_date = now.getDate();
+    var curr_month = now.getMonth() + 1; //Months are zero based
+    var curr_year = now.getFullYear();
+    return [ curr_year,
+      (curr_month <= 9 ? '0' + curr_month : curr_month),
+      curr_date].join('-');
   };
 
   var collectionStream = function (name, outputFormat) {
@@ -61,8 +63,8 @@ module.exports = function (options, readycb) {
       var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
       var startingDate = (req.query.startingDate || today()) + 'T00:00:00.000Z';
       var endingDate = (req.query.endingDate || today()) + 'T23:59:59.999Z';
-	  p.date = {'$gte' : startingDate, '$lte' : endingDate};
-	   
+      p.date = {'$gte' : startingDate, '$lte' : endingDate};
+
       var sort = {
         date: -1
       };
@@ -111,13 +113,18 @@ module.exports = function (options, readycb) {
     errors: collectionStream('error'),
     perfs: collectionStream('perf'),
     perfsCSV: collectionStream('perf', csvStream(function (item) {
-      return [item.requestid, item.date, item.couche, item.service, item.operation, item.elapsed].join(';');
+      return [item.requestid,
+        item.date,
+        item.couche,
+        item.service,
+        item.operation,
+        item.elapsed].join(';');
     })),
     stats: function (req, res) {
       var p = _.pick(req.params, 'env', 'service', 'operation');
       var startingDate = (req.query.startingDate || today()) + 'T00:00:00.000Z';
       var endingDate = (req.query.endingDate || today()) + 'T23:59:59.999Z';
-	  p.date = {'$gte' : startingDate, '$lte' : endingDate};
+      p.date = {'$gte' : startingDate, '$lte' : endingDate};
 
       // Group By 'service, operation'
       var mapFn = function () {
