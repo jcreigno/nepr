@@ -1,5 +1,6 @@
 var mongo = require('mongodb'),
   _ = require('underscore'),
+  iso8601 = require('../lib/ISO8601'),
   jsonStream = require('../lib/JSONArrayStream'),
   csvStream = require('../lib/CSVStream');
 
@@ -47,22 +48,11 @@ module.exports = function (options, readycb) {
     res.end();
   };
 
-  var today = function () {
-    var now = new Date();
-    var curr_date = now.getDate();
-    var curr_month = now.getMonth() + 1; //Months are zero based
-    var curr_year = now.getFullYear();
-    return [curr_year, (curr_month <= 9 ? '0' + curr_month : curr_month),
-    curr_date].join('-');
-  };
-
   var predicateFromQuery = function (req) {
     var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
-    var startingDate = (req.query.startingDate || today()) + 'T00:00:00.000Z';
-    var endingDate = (req.query.endingDate || today()) + 'T23:59:59.999Z';
     p.date = {
-      '$gte': startingDate,
-      '$lte': endingDate
+      '$gte': iso8601.date.start(req.query.startingDate),
+      '$lte': iso8601.date.end(req.query.endingDate)
     };
     return p;
   };
