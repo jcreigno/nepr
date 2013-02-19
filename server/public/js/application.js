@@ -211,13 +211,14 @@
                 var maxval = 0;
                 var minval = Number.MAX_VALUE;
                 // chart data
-                var chartData = data.slice(data.length - 100, data.length)
+                var chartData = data.slice(data.length - 100, data.length).reverse()
                         .map(function(item) {
                     maxval = Math.max(maxval, item.elapsed);
                     minval = Math.min(minval, item.elapsed);
                     return {
                         'date' : item.date,
-                        'elapsed' : item.elapsed
+                        'elapsed' : item.elapsed,
+						'requestid' : item.requestid
                     };
                 });
                 self.selectedPerfsMetrix({
@@ -237,8 +238,10 @@
                     var w = 500 / chartData.length;
                     return w + "px"
                 }).attr('data-placement', 'left').attr('title', function(d) {
-                    return "[" + d.date + "] : " + d.elapsed + "ms";
-                });
+                    return "[" + d.date + "] : " + d.elapsed + " ms";
+                }).on('click',function(d){
+					$.sammy().setLocation(self.urlFor('traces',{'requestid':d.requestid}));
+				});
         };
         self.couche = function(coucheId){
             return COUCHES[coucheId] ? COUCHES[coucheId] : coucheId;
