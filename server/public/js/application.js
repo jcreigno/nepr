@@ -218,7 +218,7 @@
                     return {
                         'date' : item.date,
                         'elapsed' : item.elapsed,
-						'requestid' : item.requestid
+                        'requestid' : item.requestid
                     };
                 });
                 self.selectedPerfsMetrix({
@@ -240,8 +240,8 @@
                 }).attr('data-placement', 'left').attr('title', function(d) {
                     return "[" + d.date + "] : " + d.elapsed + " ms";
                 }).on('click',function(d){
-					$.sammy().setLocation(self.urlFor('traces',{'requestid':d.requestid}));
-				});
+                    $.sammy().setLocation(self.urlFor('traces',{'requestid':d.requestid}));
+                });
         };
         self.couche = function(coucheId){
             return COUCHES[coucheId] ? COUCHES[coucheId] : coucheId;
@@ -278,12 +278,12 @@
                 show : 500
             }
         });
-		// Enable date picking
-		$('.datepickerinput').datepicker();
+        // Enable date picking
+        $('.datepickerinput').datepicker();
 		
-		ko.applyBindings(model);
+        ko.applyBindings(model);
 
-		// load errors
+        // load errors
         model.loadErrors();
         // load stats
         model.loadStats();
