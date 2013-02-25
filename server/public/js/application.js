@@ -18,6 +18,16 @@
     function trim (string){
         return trimFunc.apply(string);
     }
+
+  function toParams(params){
+    return Object.keys(params).map(function(key){
+        return key + '=' + params[key];
+    }).join('&');
+  }
+
+  function apiUrl (url, obj){
+    return obj ? url + '?' + toParams(obj): url;
+  }
 	
 	function formatDate(d) {
 		var curr_date = d.getDate();
@@ -69,10 +79,10 @@
         self.pageIndex = ko.observable(0);
         self.previousPage = function() {
             self.pageIndex(self.pageIndex() - 1);
-        }
+        };
         self.nextPage = function() {
             self.pageIndex(self.pageIndex() + 1);
-        }
+        };
         self.maxPageIndex = ko.computed(function() {
             return Math.ceil(self.all().length
                         / self.pageSize()) - 1;
@@ -82,12 +92,11 @@
             var start = self.pageIndex() * size;
             return self.all.slice(start, start + size);
         });
-
         self.stackElement = function(elem) {
             return trim(elem);
         };
 
-    };
+    }
 
     function AppStatsViewModel(){
         var self = this;
@@ -102,7 +111,7 @@
         });
         // Details for stats
         self.selected = ko.observable({});
-    };
+    }
 
 
     // ViewModel for Knockout
@@ -120,16 +129,14 @@
         // Navigation
         self.currentPage = ko.observable('home');
         self.getClassFor = function(page) {
-            return self.currentPage() == page ? 'active' : '';
+            return self.currentPage() === page ? 'active' : '';
         };
         self.urlFor = function(page, params) {
             var base = '#/'
                 + self.environnement().code
                 + '/' + page || self.currentPage();
             if(params){
-                base += '?' + Object.keys(params).map(function(key){
-                    return key + '=' + params[key];
-                }).join('&');
+                base += '?' + toParams(params);
             }
             return base;
         };
@@ -140,7 +147,7 @@
             self.loadErrors();
             self.loadStats();
             $.sammy().setLocation(self.url());
-        }
+        };
 
         // Summaries
         self.errors = new AppErrorsViewModel();
@@ -149,7 +156,7 @@
         self.selectStat = function(stat) {
             self.stats.selected(stat);
             self.loadPerfs(stat._id.service, stat._id.operation);
-        }
+        };
         self.selectedPerfs = ko.observableArray([]);
         self.selectedPerfsMetrix = ko.observable({});
 
@@ -160,6 +167,14 @@
         self.getRequestIdDetails = function() {
             self.loadTraces();
         };
+        
+        self.dateRange =  ko.computed(function(){
+          return {
+            startingDate : formatDate(self.startingDate()),
+            endingDate : formatDate(self.endingDate())
+          };
+        });
+        
         // REST calls
         self.loadTraces = function () {
             $.getJSON('/traces/'
@@ -169,12 +184,12 @@
             });
         };
         self.loadErrors = function () {
-            $.getJSON('/errors/' + self.environnement().code + '?startingDate=' + formatDate(self.startingDate()) + '&endingDate=' + formatDate(self.endingDate()), function(data) {
+            $.getJSON(apiUrl('/errors/' + self.environnement().code, self.dateRange()), function(data) {
                 self.errors.all(data);
             });
         };
         self.loadStats = function () {
-            $.getJSON('/stats/' + self.environnement().code + '?startingDate=' + formatDate(self.startingDate()) + '&endingDate=' + formatDate(self.endingDate()), function(data) {
+            $.getJSON(apiUrl('/stats/' + self.environnement().code, self.dateRange()), function(data) {
                 // Sort data
                 var sortedData = data.sort(function(d1, d2) {
                     return d1.value.count < d2.value.count;
@@ -191,10 +206,10 @@
             });
         };
         self.loadPerfs = function (service, operation) {
-            $.getJSON('/perfs/'
+            $.getJSON(apiUrl('/perfs/'
                     + self.environnement().code
                     + '/' + service
-                    + '/' + operation + '?startingDate=' + formatDate(self.startingDate()) + '&endingDate=' + formatDate(self.endingDate()), function(data) {
+                    + '/' + operation, self.dateRange()), function(data) {
                 self.selectedPerfs(data);
                 if(d3){
                     self.graphPerfs();
@@ -233,10 +248,10 @@
 
                 divs.style("height", function(d) {
                     var h = d.elapsed * 200 / maxval;
-                    return h + "px"
+                    return h + "px";
                 }).style("width", function(d) {
                     var w = 500 / chartData.length;
-                    return w + "px"
+                    return w + "px";
                 }).attr('data-placement', 'left').attr('title', function(d) {
                     return "[" + d.date + "] : " + d.elapsed + " ms";
                 }).on('click',function(d){
@@ -257,13 +272,13 @@
         $.sammy(function(app) {
             // all routes
             this.get('#/:env/:page', function(context) {
-                model.currentPage(context.params['page']);
+                model.currentPage(context.params.page);
                 model.environnement(model.allEnvironnements()
                         .filter(function(item) {
-                    return item.code == context.params['env'];
+                    return item.code === context.params.env;
                 }).pop());
-                if(context.params['requestid']){
-                    model.requestId(context.params['requestid']);
+                if(context.params.requestid){
+                    model.requestId(context.params.requestid);
                     model.getRequestIdDetails();
                 }
             });
