@@ -50,10 +50,12 @@ module.exports = function (options, readycb) {
 
   var predicateFromQuery = function (req) {
     var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
-    p.date = {
-      '$gte': iso8601.date.start(req.query.startingDate),
-      '$lte': iso8601.date.end(req.query.endingDate)
-    };
+    if (req.query.startingDate && req.query.endingDate){
+      p.date = {
+        '$gte': iso8601.date.start(req.query.startingDate),
+        '$lte': iso8601.date.end(req.query.endingDate)
+      };
+    }
     return p;
   };
 
