@@ -194,7 +194,7 @@
             $.getJSON('/perfs/'
                     + self.environnement().code
                     + '/' + service
-                    + '/' + operation, function(data) {
+                    + '/' + operation + '?startingDate=' + formatDate(self.startingDate()) + '&endingDate=' + formatDate(self.endingDate()), function(data) {
                 self.selectedPerfs(data);
                 if(d3){
                     self.graphPerfs();
