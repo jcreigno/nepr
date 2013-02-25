@@ -26,6 +26,7 @@
   }
 
   function apiUrl(url, obj) {
+    url = '/' + url.join('/');
     return obj ? url + '?' + toParams(obj) : url;
   }
 
@@ -37,9 +38,9 @@
   }
 
   var ENVS = [new Environnement('prod', 'Production')
-                   , new Environnement('integr', 'Intégration')
-                   , new Environnement('re7', 'Recette')
-                   , new Environnement('dev', 'Développement')];
+                       , new Environnement('integr', 'Intégration')
+                       , new Environnement('re7', 'Recette')
+                       , new Environnement('dev', 'Développement')];
 
   var COUCHES = {
     'ent': 'Entités',
@@ -132,11 +133,7 @@
       return self.currentPage() === page ? 'active' : '';
     };
     self.urlFor = function (page, params) {
-      var base = '#/' + self.environnement().code + '/' + page || self.currentPage();
-      if (params) {
-        base += '?' + toParams(params);
-      }
-      return base;
+      return '#' + apiUrl([self.environnement().code, page || self.currentPage()], params);
     };
     self.url = ko.computed(function () {
       return self.urlFor(self.currentPage());
@@ -175,17 +172,17 @@
 
     // REST calls
     self.loadTraces = function () {
-      $.getJSON('/traces/' + self.environnement().code + '/' + self.requestId(), function (data) {
+      $.getJSON(apiUrl(['traces', self.environnement().code, self.requestId()]), function (data) {
         self.requestIdDetails(data);
       });
     };
     self.loadErrors = function () {
-      $.getJSON(apiUrl('/errors/' + self.environnement().code, self.dateRange()), function (data) {
+      $.getJSON(apiUrl(['errors', self.environnement().code], self.dateRange()), function (data) {
         self.errors.all(data);
       });
     };
     self.loadStats = function () {
-      $.getJSON(apiUrl('/stats/' + self.environnement().code, self.dateRange()), function (data) {
+      $.getJSON(apiUrl(['stats', self.environnement().code], self.dateRange()), function (data) {
         // Sort data
         var sortedData = data.sort(function (d1, d2) {
           return d1.value.count < d2.value.count;
@@ -201,7 +198,7 @@
       });
     };
     self.loadPerfs = function (service, operation) {
-      $.getJSON(apiUrl('/perfs/' + self.environnement().code + '/' + service + '/' + operation, self.dateRange()), function (data) {
+      $.getJSON(apiUrl(['perfs', self.environnement().code, service, operation], self.dateRange()), function (data) {
         self.selectedPerfs(data);
         if (d3) {
           self.graphPerfs();
