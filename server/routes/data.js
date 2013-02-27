@@ -80,17 +80,12 @@ module.exports = function (options, readycb) {
 
   return {
     events: function (req, res) {
-      var entete = {
-        "env": req.params.env,
-        "couche": req.params.couche,
-        "machine": req.params.machine
-      };
 
       var eventsByType = _.reduce(req.body, function (memo, msg) {
         if (!memo[msg.type]) {
           memo[msg.type] = [];
         }
-        memo[msg.type].push(_.defaults(msg, entete));
+        memo[msg.type].push(_.defaults(msg, req.params));
         return memo;
       }, {});
 
