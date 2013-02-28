@@ -5,7 +5,6 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , data = require('./routes/data')
   , http = require('http')
   , path = require('path');
 
@@ -30,27 +29,9 @@ app.configure('development', function(){
 });
 
 var config = require(path.join(__dirname, './config.json'));
-var routes = data(config.db);
+//configure routes
+routes(config.db).configure(app);
 
-app.get('/stats/:env', routes.stats);
-app.get('/stats/:env/:service', routes.stats);
-app.get('/stats/:env/:service/:operation', routes.stats);
-
-app.get('/perfs/:env/:service', routes.perfs);
-app.get('/perfs/:env/:service/:operation', routes.perfs);
-
-app.get('/errors/:env', routes.errors);
-app.get('/errors/:env/:service', routes.errors);
-app.get('/errors/:env/:service/:operation', routes.errors);
-
-app.get('/traces/:env/:requestid', routes.perfs);
-app.get('/traces/:env', function(req, res){
-  res.setHeader('Content-Disposition','attachment; filename="perfs-' + req.params.env + '.csv"');
-  routes.perfsCSV(req, res);
-});
-  
-
-app.post('/data/:env/:couche/:machine', routes.events);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

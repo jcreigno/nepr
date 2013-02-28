@@ -1,7 +1,7 @@
 var es = require('event-stream');
 
 /** join documents to an CSV stream in response.*/
-var csvStream = function (toCSV, head) {
+var objectToCsvStream = function (toCSV, head) {
   var first = true,
     header = head;
   return es.through(function write(data) {
@@ -30,14 +30,12 @@ var allKeys = function(item){
   }).join(';');
 }
 
-module.exports = function (tocsv, headers) {
-  return {
-    stream: function(){
-      return csvStream(tocsv || allKeys, headers);
-    },
-    writeHeaders: function (req, res) {
-      res.setHeader('Content-Type', 'text/csv');
-    }
-  };
+module.exports = {
+  stringify: function(tocsv, headers){
+    return objectToCsvStream(tocsv || allKeys, headers);
+  },
+  parse: function () {
+    //return csvToObjectStream(parsecsv || allKeys, headers);
+  }
 };
 

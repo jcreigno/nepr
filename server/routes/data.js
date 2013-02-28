@@ -1,8 +1,7 @@
 var mongo = require('mongodb'),
   _ = require('underscore'),
   iso8601 = require('../lib/ISO8601'),
-  jsonStream = require('../lib/JSONArrayStream'),
-  csvStream = require('../lib/CSVStream');
+  JSONStream = require('JSONStream');
 
 var Server = mongo.Server,
   Db = mongo.Db,
@@ -48,19 +47,34 @@ module.exports = function (options, readycb) {
     res.end();
   };
 
-  var predicateFromQuery = function (req) {
-    var p = _.pick(req.params, 'env', 'service', 'operation', 'requestid');
-    if (req.query.startingDate && req.query.endingDate){
-      p.date = {
-        '$gte': iso8601.date.start(req.query.startingDate),
-        '$lte': iso8601.date.end(req.query.endingDate)
+  /**
+      query builder on a set of document attributes.
+      @param {Array} document attributes
+      @return {Function} to build a predicate based on request values.
+   */
+  var querybuilder = function(attributes){
+      var attrs = attributes || [];
+      return function (req) {
+        var p = _.pick(req.params, attributes);
+        if (req.query.startingDate && req.query.endingDate){
+          p.date = {
+            '$gte': iso8601.date.start(req.query.startingDate),
+            '$lte': iso8601.date.end(req.query.endingDate)
+          };
+        }
+        return p;
       };
-    }
-    return p;
   };
 
-  var collectionStream = function (name, outputFormat) {
-    var output = outputFormat || jsonStream();
+  /**
+      build a streamable result on collection `name`.
+      @param {String} collection name
+      @param {Array} document attributes
+      @param {WriteableStream} filter stream default to `JSONStream.stringify`
+      @return {Function} stream collection query result to response stream.
+   */
+  var collectionStream = function (name, attributes, output) {
+    var predicateFromQuery = querybuilder(attributes);
     return function (req, res) {
       var p = predicateFromQuery(req);
       var sort = {
@@ -71,14 +85,16 @@ module.exports = function (options, readycb) {
           sendError(res, 'unable to read collection ' + name, err);
         }
         else {
-          output.writeHeaders(req, res);
-          col.find(p).sort(sort).stream().pipe(output.stream()).pipe(res);
+          col.find(p).sort(sort).stream().pipe(output || JSONStream.stringify()).pipe(res);
         }
       });
     };
   };
 
   return {
+    /**
+      incomming events
+     */
     events: function (req, res) {
 
       var eventsByType = _.reduce(req.body, function (memo, msg) {
@@ -103,66 +119,60 @@ module.exports = function (options, readycb) {
       });
       res.send(200);
     },
-    errors: collectionStream('error'),
-    perfs: collectionStream('perf'),
-    perfsCSV: collectionStream('perf', csvStream(function (item) {
-      return [item.requestid,
-      item.date,
-      item.couche,
-      item.service,
-      item.operation,
-      item.elapsed].join(';');
-    })),
-    stats: function (req, res) {
-      var p = predicateFromQuery(req);
+    stream: collectionStream,
+    stats: function(attributes){
+      var predicateFromQuery = querybuilder(attributes);
+      return function (req, res) {
+        var p = predicateFromQuery(req);
 
-      // Group By 'service, operation'
-      var mapFn = function () {
-        emit({
-          service: this.service,
-          operation: this.operation,
-          couche: this.couche
-        }, {
-          count: 1,
-          elapsed: this.elapsed
+        // Group By 'service, operation'
+        var mapFn = function () {
+          emit({
+            service: this.service,
+            operation: this.operation,
+            couche: this.couche
+          }, {
+            count: 1,
+            elapsed: this.elapsed
+          });
+        };
+
+        // Agregate elapsed time
+        var reduceFn = function (key, values) {
+          var result = {
+            count: 0,
+            elapsed: 0
+          };
+          values.forEach(function (val) {
+            result.count += val.count;
+            result.elapsed += val.elapsed;
+          });
+          return result;
+        };
+
+        db.collection('perf', function (err, col) {
+          var options = {
+            'query': p,
+            'finalize': function (key, value) { // Calculate average
+              value.average = value.elapsed / value.count;
+              return value;
+            },
+            'out': {
+              inline: 1
+            }
+          };
+          col.mapReduce(mapFn, reduceFn, options, function (err, rescoll) {
+            if (err) {
+              sendError(res, 'unable to read stats.', err);
+            }
+            else {
+              res.setHeader('Content-Type', 'application/json');
+              res.send(rescoll);
+              res.end();
+            }
+          });
         });
       };
-
-      // Agregate elapsed time
-      var reduceFn = function (key, values) {
-        var result = {
-          count: 0,
-          elapsed: 0
-        };
-        values.forEach(function (val) {
-          result.count += val.count;
-          result.elapsed += val.elapsed;
-        });
-        return result;
-      };
-
-      db.collection('perf', function (err, col) {
-        var options = {
-          'query': p,
-          'finalize': function (key, value) { // Calculate average
-            value.average = value.elapsed / value.count;
-            return value;
-          },
-          'out': {
-            inline: 1
-          }
-        };
-        col.mapReduce(mapFn, reduceFn, options, function (err, rescoll) {
-          if (err) {
-            sendError(res, 'unable to read stats.', err);
-          }
-          else {
-            res.setHeader('Content-Type', 'application/json');
-            res.send(rescoll);
-            res.end();
-          }
-        });
-      });
     }
   };
 };

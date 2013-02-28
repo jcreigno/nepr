@@ -8,22 +8,14 @@ var tocsv = function (item) {
 };
 
 vows.describe('a CSV Stream').addBatch({
-  'When can create a csvStream,': {
-    topic: csvStream(tocsv),
+  'When I require a csvStream,': {
+    topic: csvStream,
     'I get a reference to an object': function(topic){
       assert.ok(topic);
     },
-    'with a \'stream\' method': function(topic){
-      assert.ok(topic.stream);
-      assert.equal('function', typeof topic.stream);
-    },
-    'with a \'writeHeaders\' method': function(topic){
-      assert.ok(topic.writeHeaders);
-      assert.equal('function', typeof topic.writeHeaders);
-    },
-    'I can create a stream ':{
+    'I can create a stringify stream with default a custom csv mapper ':{
       topic: function(parent){
-        return parent.stream();
+        return parent.stringify(tocsv);
       },
       'I get a stream object': function (topic){
         assert.equal('object', typeof topic);
@@ -54,14 +46,14 @@ vows.describe('a CSV Stream').addBatch({
     }
   }
 }).addBatch({
-  'When can create a csvStream with default CSV mapper,': {
-    topic: csvStream(),
+  'When I require a csvStream,': {
+    topic: csvStream,
     'I get a reference to an object': function(topic){
       assert.ok(topic);
     },
-    'I can create a stream ':{
+    'I can create a stringify stream with default CSV mapper':{
       topic: function(parent){
-        return parent.stream();
+        return parent.stringify();
       },
       'and get a stream object': function (topic){
         assert.equal('object', typeof topic);
